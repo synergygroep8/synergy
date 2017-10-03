@@ -46,3 +46,11 @@
     padding: 0;
     margin: 0;
 }
+
+.green {
+    color: green;
+}
+
+.red {
+    color: #ff0000;
+}

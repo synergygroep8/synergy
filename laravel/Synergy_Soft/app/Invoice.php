@@ -11,6 +11,7 @@ class Invoice extends Model
 
     public function project()
     {
-        return $this->belongsTo('App\Project');
+        return $this->belongsTo('App\Project', 'pId', 'id');
     }
+
 }

@@ -26,18 +26,23 @@
 <?php $columns = ['id', 'Company Name', 'Active', 'Email', 'Phone', 'Phone 2', 'Phone 3', 'Phone 4', 'Residence', 'Address', 'House Number', 'Zip Code', 'Residence 2', 'Address 2', 'House Number 2', 'Zip Code 2', 'Contact Person', 'Fax Number', 'Initials', 'Bankaccount Number', 'Balance', 'Profit', 'Invoices', 'BTW Code']; ?>
 @section ('mainbar')
     <table class="table table-striped">
-
-            <tr>
-                <th>id</th>
-                <td>{{$customer->id}}</td>
-            </tr>
-            <tr>
-                <th>Company Name</th>
-                <td>{{ $customer->companyName }}</td>
-            </tr>
+        <tr>
+            <th>id</th>
+            <td>{{$customer->id}}</td>
+        </tr>
+        <tr>
+            <th>Company Name</th>
+            <td>{{ $customer->companyName }}</td>
+        </tr>
         <tr>
             <th>Active</th>
-            <td>{{$customer->isActive}}</td>
+            <td>
+                @if ($customer->isActive == '1')
+                    <p class="green">Yes</p>
+                @else
+                    <p class="red">No</p>
+                @endif
+            </td>
         </tr>
         <tr>
             <th>Email</th>

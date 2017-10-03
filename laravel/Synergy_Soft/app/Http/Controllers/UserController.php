@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Invoice;
+use App\Project;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -31,10 +33,17 @@ class UserController extends Controller
         switch (Auth::user()->department)
         {
             case 0:
-                return view('dashboards.admin-dash');
+                $openInvoices = Invoice::where('paid', '0')->get();
+                $closedInvoices = Invoice::where('paid', '1')->get();
+                return view('dashboards.admin-dash', compact('openInvoices', 'closedInvoices'));
                 break;
             case 1:
-                return view('dashboards.finance-dash');
+
+                //$openInvoices = Invoice::with('project')->with('project.customer');
+                $openInvoices = Invoice::where('paid', '0')->get();
+                $closedInvoices = Invoice::where('paid', '1')->get();
+                //return $openInvoices[0]->project->customer;
+                return view('dashboards.finance-dash', compact('openInvoices', 'closedInvoices'));
                 break;
         }
     }

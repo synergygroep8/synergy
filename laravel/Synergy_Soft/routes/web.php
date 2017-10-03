@@ -29,3 +29,5 @@ Route::get('/logout', 'UserController@getLogout')->name('logout');
 Route::get('/dashboard', 'UserController@getDashboard')->middleware('auth')->name('dashboard');
 
 Route::get('/customer/{id}', 'CustomerController@show')->middleware('auth')->name('customers');
+
+Route::get('/search',['uses' => 'CustomerController@search','as' => 'search']);

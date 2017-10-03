@@ -11,6 +11,7 @@
 </head>
 <body>
 @include('includes.header')
+@include('includes.message-block')
 <div class="col-md-3">
     @yield('left-sidebar')
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -44,7 +45,10 @@
     @yield ('left-bar-list')
     </div>
 </div>
+
 <div class="col-md-6">
+
+    <h1>Welcome {{Auth::user()->username}}</h1>
     @yield('mainbar')
 </div>
 <div class="col-md-3">
