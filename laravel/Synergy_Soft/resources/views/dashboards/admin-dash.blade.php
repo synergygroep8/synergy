@@ -4,9 +4,6 @@
     Hello World
 @endsection
 
-@section ('topbar')
-
-@endsection
 
 @section ('left-sidebar')
 

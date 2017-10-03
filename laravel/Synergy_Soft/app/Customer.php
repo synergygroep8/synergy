@@ -13,4 +13,9 @@ class Customer extends Model
     {
         return $this->hasMany('App\Project');
     }
+
+    public function getTable()
+    {
+        return $this->table;
+    }
 }

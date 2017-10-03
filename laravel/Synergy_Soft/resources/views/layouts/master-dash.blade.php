@@ -10,9 +10,39 @@
     <link rel="stylesheet" href="{{URL::to('src/css/main.css')}}">
 </head>
 <body>
-@yield ('topbar')
+@include('includes.header')
 <div class="col-md-3">
     @yield('left-sidebar')
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab">
+                <h4 class="panel-title">
+                    <a href="{{route('dashboard')}}">
+                        Home
+                    </a>
+                </h4>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#accountmenu" aria-expanded="false" aria-controls="accountmenu">
+                        {{Auth::user()->username}}
+                    </a>
+                </h4>
+            </div>
+            <div id="accountmenu" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-body">
+                    <ul class="remove-bullet">
+                        <li><a href="{{route('logout')}}">Logout</a></li>
+                        <li><a href="#">Settings</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    @yield ('left-bar-list')
+    </div>
 </div>
 <div class="col-md-6">
     @yield('mainbar')

@@ -9,11 +9,11 @@
         {{csrf_field()}}
         <div class="form-group">
             <label for="username">Username</label>
-            <input type="text" name="username" class="form-control" id="username">
+            <input type="text" name="username" class="form-control" id="username" value="{{Request::old('username')}}">
         </div>
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" name="password" class="form-control" id="password">
+            <input type="password" name="password" class="form-control" id="password" value="{{Request::old('password')}}">
         </div>
         <div class="form-group">
             <input type="submit" value="Login" class="btn btn-primary">

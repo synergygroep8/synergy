@@ -16,18 +16,18 @@ class TblCustomersSeeder extends Seeder
         //
         $factory = Factory::create();
         $result = $this->splitAddress($factory->address);
-        \App\TblCustomers::create(array(
+        \App\Customer::create(array(
             'CompanyName'     =>  $factory->company,
-            'Active'          =>  1,
+            'isActive'          =>  1,
             'Email'    => $factory->companyEmail,
-            'Phone'    => $factory->phoneNumber,
-            'Residence'=> $factory->city,
-            'Address' => $result[0],
-            'HouseNumber'=> $result[1],
-            'ZipCode' => $factory->postcode,
+            'Phone1'    => $factory->phoneNumber,
+            'Residence1'=> $factory->city,
+            'Address1' => $result[0],
+            'HouseNumber1'=> $result[1][0] . $result[1][1] . $result[1][2],
+            'ZipCode1' => $factory->postcode,
             'ContactPerson' => $factory->name,
             'FaxNumber' => '8329473427',
-            'Initials' => 'JGF',
+            'initals' => 'JGF',
             'BankaccountNumber' => $factory->bankAccountNumber,
             'Balance' => 200,
             'Invoices' => 2,
