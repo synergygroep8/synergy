@@ -20,12 +20,14 @@ class CustomerController extends Controller
         //search that student in Database
         try {
             $customer = Customer::where('id', $keyword)->get();
+            if (count($customer) == 0)
+                throw new \ErrorException();
         }
         catch (\Exception $ex)
         {
+            //dd($ex);
             $customer = Customer::where('companyName', $keyword)->get();
         }
-
         if (count($customer) == 0)
         {
             $messageB = "Company not found";
