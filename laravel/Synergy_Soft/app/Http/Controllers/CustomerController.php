@@ -40,6 +40,43 @@ class CustomerController extends Controller
         return view('customers.show', compact('customer'));
     }
 
+    public function searchCompany()
+    {
+        $keyword = Input::get('q');
+        $customerId = array();
+        $customerName = array();
+        $customerAddress = array();
+        $customerCity = array();
+        try {
+            $customerId = Customer::find($keyword);
+            //if (count($customerId) == 0)
+                throw new \ErrorException();
+        } catch (\Exception $e1) {
+            try {
+                $keyword = '%' . $keyword . '%';
+                $customerName = Customer::where('companyName', 'like', $keyword)->get();
+                throw new \ErrorException();
+
+            } catch (\Exception $e2) {
+                try {
+                    $customerAddress = Customer::where('address1', 'like', $keyword)->get();
+                    throw new \ErrorException();
+                } catch (\Exception $e3) {
+                    try {
+                        $customerCity = Customer::where('residence1', 'like', $keyword)->get();
+                    } catch (\Exception $e4)
+                    {
+
+                    }
+                }
+            }
+        }
+
+
+
+        return view('searches.invoiceresults', compact('customerId', 'customerName', 'customerAddress', 'customerCity'));
+    }
+
     public function show($id)
     {
         $id = Input::get('id');

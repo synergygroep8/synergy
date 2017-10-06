@@ -45,6 +45,8 @@ class UserController extends Controller
                 //return $openInvoices[0]->project->customer;
                 return view('dashboards.finance-dash', compact('openInvoices', 'closedInvoices'));
                 break;
+            default:
+                return response("404 not found", 404);
         }
     }
 

@@ -24,7 +24,7 @@
         } ?>
     @endsection
 @endsection
-<?php $columns = ['id', 'Company Name', 'Active', 'Email', 'Phone', 'Phone 2', 'Phone 3', 'Phone 4', 'Residence', 'Address', 'House Number', 'Zip Code', 'Residence 2', 'Address 2', 'House Number 2', 'Zip Code 2', 'Contact Person', 'Fax Number', 'Initials', 'Bankaccount Number', 'Balance', 'Profit', 'Invoices', 'BTW Code']; ?>
+{{$columns = ['id', 'Company Name', 'Active', 'Email', 'Phone', 'Phone 2', 'Phone 3', 'Phone 4', 'Residence', 'Address', 'House Number', 'Zip Code', 'Residence 2', 'Address 2', 'House Number 2', 'Zip Code 2', 'Contact Person', 'Fax Number', 'Initials', 'Bankaccount Number', 'Balance', 'Profit', 'Invoices', 'BTW Code']}}
 @section ('mainbar')
     <div class="panel panel-default">
         <div class="panel-body">

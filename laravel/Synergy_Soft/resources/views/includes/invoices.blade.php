@@ -2,7 +2,7 @@
 <div class="panel panel-default">
     <div class="panel-heading">
         <h1>
-            <!--<form action="{{route('customers', $customersearch)}}" method="post">
+            <!--<form action="route('customerdetail', $customersearch)}}" method="post">
                 <div class="col-lg">
                     <div class="input-group input-group-lg">
                         <input type="text" class="form-control input-lg" name="id" id="customersearch" placeholder="Customer id, Company name">
@@ -12,7 +12,7 @@
                     </div>
                 </div>
             </form>-->
-                <form  action="{{route('search')}}" method="get">
+                <form  action="{{route('searchcompany')}}" method="get">
                     <div class="input-group input-group-lg">
                         <input type="text" class="form-control input-lg" name="q" placeholder="Company id, Company Name"/>
                         <span class="input-group-btn">

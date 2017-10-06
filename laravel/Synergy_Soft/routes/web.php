@@ -25,9 +25,23 @@ Route::get('/register', 'UserController@getRegister')->name('register');
 Route::post('/register', 'UserController@postRegister')->name('registerme');
 /* Logout */
 Route::get('/logout', 'UserController@getLogout')->name('logout');
-
+/** Main content */
+/* Dashboard (for every user) */
 Route::get('/dashboard', 'UserController@getDashboard')->middleware('auth')->name('dashboard');
+/* Search for companies */
+Route::get('/search', 'CustomerController@searchCompany')->middleware('auth')->name('searchcompany');
+/* Customer detail page */
+Route::get('/customer/{id}', 'CustomerController@show')->middleware('auth')->name('customerdetail');
+/* Project detail page */
+//==============================================INSERT CODE======================================================
 
-Route::get('/customer/{id}', 'CustomerController@show')->middleware('auth')->name('customers');
 
-Route::get('/search',['uses' => 'CustomerController@search','as' => 'search']);
+/* Search for invoices*/
+Route::get('/invoice/search', 'InvoiceController@searchInvoice')->middleware('auth')->name('searchinvoice'); // INSERT CODE
+/* Invoice detail page */
+Route::get('/invoice/{id}', 'InvoiceController@show')->middleware('auth')->name('invoicedetail');
+/* Search for projects */
+//==============================================INSERT CODE======================================================
+
+
+

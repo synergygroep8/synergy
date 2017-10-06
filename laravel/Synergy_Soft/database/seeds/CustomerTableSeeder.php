@@ -12,7 +12,7 @@ class CustomerTableSeeder extends Seeder
     public function run()
     {
         $factory = Factory::create();
-        \App\TblCustomers::create(array(
+        \App\Customer::create(array(
             'CompanyName'     =>  $factory->company,
             'Active'          =>  1,
             'Email'    => $factory->companyEmail,
