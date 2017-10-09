@@ -14,6 +14,11 @@ class Customer extends Model
         return $this->hasMany('App\Project', 'cId');
     }
 
+    public function invoices()
+    {
+        return $this->hasManyThrough('App\Invoice', 'App\Project', 'Cid', 'pId');
+    }
+
     public function getTable()
     {
         return $this->table;

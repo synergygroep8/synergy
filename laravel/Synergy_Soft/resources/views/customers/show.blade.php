@@ -117,7 +117,7 @@
                 </tr>
                 <tr>
                     <th>Invoices</th>
-                    <td>{{$customer->invoices}}</td>
+                    <td>{{$customer->invoices}} <a href="/"></a></td>
                 </tr>
                 <tr>
                     <th>Balance</th>

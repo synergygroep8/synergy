@@ -12,9 +12,9 @@
                     </div>
                 </div>
             </form>-->
-                <form  action="{{route('searchcompany')}}" method="get">
+                <form  action="{{route('searchinvoice')}}" method="get">
                     <div class="input-group input-group-lg">
-                        <input type="text" class="form-control input-lg" name="q" placeholder="Company id, Company Name"/>
+                        <input type="text" class="form-control input-lg" name="q" placeholder="Invoice id, invoice nr"/>
                         <span class="input-group-btn">
                             <button class="btn btn-primary btn-lg" type="submit">Search</button>
                         </span>
@@ -36,11 +36,11 @@
                     <td>{{$openInvoice->project->customer->companyName}}</td>
                     <td>{{count($openInvoice->project())}}</td>
                     <td></td>
-                    <td><a href="#">View</a></td>
+                    <td><a class="btn btn-danger" href="/invoice/{{$openInvoice->id}}">View</a></td>
                 </tr>
             @endforeach
         </table>
-        <h3>No open invoices</h3>
+        <h3>Closed invoices</h3>
         <table class="table table-striped">
             <tr>
                 <th>Company name</th>
@@ -53,7 +53,7 @@
                     <td>{{$closedInvoice->project->customer->companyName}}</td>
                     <td>{{count($closedInvoice->project())}}</td>
                     <td></td>
-                    <td><a href="#">View</a></td>
+                    <td><a class="btn btn-success" href="/invoice/{{$closedInvoice->id}}">View</a></td>
                 </tr>
             @endforeach
         </table>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Customer;
+use App\Invoice;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
@@ -43,28 +44,33 @@ class CustomerController extends Controller
     public function searchCompany()
     {
         $keyword = Input::get('q');
+        if ($keyword == "")
+        {
+            return redirect()->back();
+        }
         $customerId = array();
         $customerName = array();
         $customerAddress = array();
         $customerCity = array();
         try {
-            $customerId = Customer::find($keyword);
+            $keyword = '%' . $keyword . '%';
+            $customerId = Customer::where('id', 'like', $keyword)->get();
             //if (count($customerId) == 0)
-                throw new \ErrorException();
+                throw new \Exception();
         } catch (\Exception $e1) {
             try {
-                $keyword = '%' . $keyword . '%';
-                $customerName = Customer::where('companyName', 'like', $keyword)->get();
-                throw new \ErrorException();
-
-            } catch (\Exception $e2) {
+                $customerCity = Customer::where('residence1', 'like', $keyword)->get();
+                throw new \Exception();
+            } catch (\Exception $e4)
+            {
                 try {
-                    $customerAddress = Customer::where('address1', 'like', $keyword)->get();
-                    throw new \ErrorException();
-                } catch (\Exception $e3) {
+                    $customerName = Customer::where('companyName', 'like', $keyword)->get();
+                    throw new \Exception();
+                } catch (\Exception $e5) {
                     try {
-                        $customerCity = Customer::where('residence1', 'like', $keyword)->get();
-                    } catch (\Exception $e4)
+                        $customerAddress = Customer::where('address1', 'like', $keyword)->get();
+
+                    } catch (\Exception $e6)
                     {
 
                     }
@@ -74,7 +80,7 @@ class CustomerController extends Controller
 
 
 
-        return view('searches.invoiceresults', compact('customerId', 'customerName', 'customerAddress', 'customerCity'));
+        return view('searches.companyresults', compact('customerId', 'customerName', 'customerAddress', 'customerCity'));
     }
 
     public function show($id)

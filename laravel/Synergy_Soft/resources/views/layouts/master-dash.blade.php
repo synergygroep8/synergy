@@ -42,7 +42,12 @@
             </div>
         </div>
 
-    @yield ('left-bar-list')
+        @if (Auth::user()->department == 1)
+            @include('includes.finance-left-bar')
+        @elseif (Auth::user()->department == 0)
+            @include('includes.finance-left-bar')
+            @include('includes.admin-left-bar')
+        @endif
     </div>
 </div>
 

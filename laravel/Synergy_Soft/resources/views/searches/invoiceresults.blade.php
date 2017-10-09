@@ -1,124 +1,72 @@
-@extends ('layouts.master')
+@extends ('layouts.master-dash')
 
 @section ('title')
 @endsection
 
-@section ('content')
-    <a href="{{route('dashboard')}}">Dashboard</a>
+@section ('mainbar')
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">Companies based on ID</h3>
+            <h3 class="panel-title">Companies based on invoice id</h3>
         </div>
         <div class="panel body">
-            @if (count($customerId) == 0)
-                <p>There are no companies matching this id.</p>
+            @if (count($customerInvoiceID) == 0)
+                <p>There are no companies matching this invoice id.</p>
             @else
                 <table class="table table-striped table-hover">
                     <tr>
-                        <th>ID</th>
+                        <th>Company ID</th>
                         <th>Company Name</th>
-                        <th>Total Projects</th>
-                        <th>Total Invoices</th>
+                        <th>Invoice nr</th>
+                        <th>Invoice ID</th>
+                        <th>View</th>
                     </tr>
-
-                        <tr>
-                            <td>{{$customerId->id}}</td>
-                            <td>{{$customerId->companyName}}</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                        @foreach ($customerInvoiceID as $item)
+                            <tr>
+                                <td>{{$item->project->customer->id}}</td>
+                                <td>{{$item->project->customer->companyName}}</td>
+                                <td>{{$item->invoiceNr}}</td>
+                                <td>{{$item->id}}</td>
+                                <td>
+                                    <a role="button" href="/invoice/{{$item->id}}" class="btn btn-info">View</a>
+                                </td>
+                            </tr>
+                        @endforeach
                 </table>
             @endif
-        </div>
-    </div>
-
-
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">Companies based on name</h3>
-        </div>
-        <div class="panel body">
-            @if (count($customerName) == 0)
-                <p>There are no companies matching this name.</p>
-            @else
-            <table class="table table-striped table-hover">
-                <tr>
-                    <th>ID</th>
-                    <th>Company Name</th>
-                    <th>Total Projects</th>
-                    <th>Total Invoices</th>
-                </tr>
-
-
-                @foreach ($customerName as $item)
-                    <tr>
-                        <td>{{$item->id}}</td>
-                        <td>{{$item->companyName}}</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                @endforeach
-            </table>
-            @endif
 
         </div>
     </div>
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">Companies based on address</h3>
+            <h3 class="panel-title">Companies based on invoice number</h3>
         </div>
         <div class="panel body">
-            @if (count($customerAddress) == 0)
-                <p>There are no companies matching this address.</p>
-            @else
-            <table class="table table-striped table-hover">
-                <tr>
-                    <th>ID</th>
-                    <th>Company Name</th>
-                    <th>Total Projects</th>
-                    <th>Total Invoices</th>
-                </tr>
-                @foreach ($customerAddress as $item)
-                    <tr>
-                        <td>{{$item->id}}</td>
-                        <td>{{$item->companyName}}</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                @endforeach
-            </table>
-            @endif
-
-        </div>
-    </div>
-
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">Companies based on residence</h3>
-        </div>
-        <div class="panel body">
-            @if (count($customerCity) == 0)
+            @if (count($customerInvoiceNr) == 0)
                 <p>There are no companies matching this residence.</p>
             @else
-            <table class="table table-striped table-hover">
-                <tr>
-                    <th>ID</th>
-                    <th>Company Name</th>
-                    <th>Total Projects</th>
-                    <th>Total Invoices</th>
-                </tr>
+                <table class="table table-striped table-hover">
+                    <tr>
+                        <th>Company ID</th>
+                        <th>Company Name</th>
+                        <th>Invoice nr</th>
+                        <th>Invoice ID</th>
+                        <th>View</th>
+                    </tr>
 
 
-                    @foreach ($customerCity as $item)
+                    @foreach ($customerInvoiceNr as $item)
                         <tr>
+                            <td>{{$item->project->customer->id}}</td>
+                            <td>{{$item->project->customer->companyName}}</td>
+                            <td>{{$item->invoiceNr}}</td>
                             <td>{{$item->id}}</td>
-                            <td>{{$item->companyName}}</td>
-                            <td></td>
-                            <td></td>
+                            <td>
+                                <a role="button" href="/invoice/{{$item->id}}" class="btn btn-info">View</a>
+                            </td>
                         </tr>
                     @endforeach
-            </table>
+                </table>
             @endif
 
         </div>

@@ -29,7 +29,7 @@ Route::get('/logout', 'UserController@getLogout')->name('logout');
 /* Dashboard (for every user) */
 Route::get('/dashboard', 'UserController@getDashboard')->middleware('auth')->name('dashboard');
 /* Search for companies */
-Route::get('/search', 'CustomerController@searchCompany')->middleware('auth')->name('searchcompany');
+Route::get('/customer/search', 'CustomerController@searchCompany')->middleware('auth')->name('searchcompany');
 /* Customer detail page */
 Route::get('/customer/{id}', 'CustomerController@show')->middleware('auth')->name('customerdetail');
 /* Project detail page */
