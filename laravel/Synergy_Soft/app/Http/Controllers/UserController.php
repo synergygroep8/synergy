@@ -45,6 +45,14 @@ class UserController extends Controller
                 //return $openInvoices[0]->project->customer;
                 return view('dashboards.finance-dash', compact('openInvoices', 'closedInvoices'));
                 break;
+
+            case 2:
+//                $openProject = Project::where('paid', '0')->get();
+//                $closedProject = Project::where('paid', '1')->get();
+                return view('dashboards.sales-dash', compact('openProjects', 'closedProjects'));
+                break;
+
+                ///Default
             default:
                 return response("404 not found", 404);
         }

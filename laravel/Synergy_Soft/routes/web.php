@@ -32,7 +32,12 @@ Route::get('/dashboard', 'UserController@getDashboard')->middleware('auth')->nam
 Route::get('/customer/search', 'CustomerController@searchCompany')->middleware('auth')->name('searchcompany');
 /* Customer detail page */
 Route::get('/customer/{id}', 'CustomerController@show')->middleware('auth')->name('customerdetail');
-/* Project detail page */
+
+/*Add Customer*/
+Route::get('/customer/create','CustomerController@getCreate');
+
+Route::post('/customer/create','CustomerController@PostCreate');
+
 //==============================================INSERT CODE======================================================
 
 
@@ -40,8 +45,19 @@ Route::get('/customer/{id}', 'CustomerController@show')->middleware('auth')->nam
 Route::get('/invoice/search', 'InvoiceController@searchInvoice')->middleware('auth')->name('searchinvoice'); // INSERT CODE
 /* Invoice detail page */
 Route::get('/invoice/{id}', 'InvoiceController@show')->middleware('auth')->name('invoicedetail');
+
 /* Search for projects */
+Route::get('/projects/search', 'ProjectController@searchProjects');
+/*show projects list */
+Route::get('/projects/list', 'ProjectController@index');
+/* Project detail page */
+Route::get('/projects/detail', 'ProjectController@detail');
+
+
 //==============================================INSERT CODE======================================================
 
+
+
+//============================================
 
 
