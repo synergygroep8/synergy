@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->integer('department');
             $table->timestamps();
+            $table->date('deleted_at')->nullable();
         });
     }
 
