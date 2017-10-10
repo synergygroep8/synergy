@@ -30,13 +30,15 @@ Route::get('/logout', 'UserController@getLogout')->name('logout');
 Route::get('/dashboard', 'UserController@getDashboard')->middleware('auth')->name('dashboard');
 /* Search for companies */
 Route::get('/customer/search', 'CustomerController@searchCompany')->middleware('auth')->name('searchcompany');
-/* Customer detail page */
-Route::get('/customer/{id}', 'CustomerController@show')->middleware('auth')->name('customerdetail');
 
 /*Add Customer*/
 Route::get('/customer/create','CustomerController@getCreate');
 
 Route::post('/customer/create','CustomerController@postCreate');
+
+/* Customer detail page */
+Route::get('/customer/{id}', 'CustomerController@show')->middleware('auth')->name('customerdetail');
+
 
 //==============================================INSERT CODE======================================================
 
@@ -51,9 +53,15 @@ Route::get('/projects/search', 'ProjectController@searchProjects');
 /*show projects list */
 Route::get('/projects/list', 'ProjectController@index');
 /* Project detail page */
+Route::get('/projects/{id}/invoices/create', 'InvoiceController@getCreate');
+
+Route::post('/projects/{id}/invoices', 'InvoiceController@store')->name('createInvoice');
+
+Route::get('/projects/{id}/invoices', 'InvoiceController@index')->name('listInvoice');
+
 Route::get('/projects/{id}', 'ProjectController@detail');
 /* Create invoice from project*/
-Route::get('/projects/{id}/invoices/create', 'InvoiceController@getCreate');
+
 
 //==============================================INSERT CODE======================================================
 

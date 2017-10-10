@@ -17,15 +17,23 @@ class InvoiceController extends Controller
         return view ('invoices.index', compact('invoices'));
     }
 
+    public function projectIndex($id)
+    {
+        $invoices = Invoice::where('pId', $id)->get();
+
+        return view ('invoices.index', compact('invoices'));
+    }
+
     public function show($id)
     {
         $invoice = Invoice::find($id);
         return view('invoices.show', compact('invoice'));
     }
 
-    public function getCreate()
+    public function getCreate($id)
     {
-        return view('invoices.create');
+        $project = Project::find($id);
+        return view('invoices.create', compact('project'));
     }
 
     public function searchInvoice()
@@ -56,7 +64,7 @@ class InvoiceController extends Controller
         return view('searches.invoiceresults', compact('customerInvoiceID', 'customerInvoiceNr'));
     }
 
-    public function store(Request $request, $id)
+    public function store($id, Request $request)
     {
         $this->validate($request, [
             'customerId' => 'required',
@@ -89,6 +97,7 @@ class InvoiceController extends Controller
         $invoice->pId = $projectId;
         $invoice->invoiceNr = $invoiceNr;
         $invoice->date = $date;
+        $invoice->BTW = '21.0';
         $invoice->invoiceTotal = $invoiceTotal;
         $invoice->paid = $paid;
         $invoice->description = $description;
