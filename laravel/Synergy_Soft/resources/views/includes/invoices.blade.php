@@ -1,4 +1,6 @@
 {{$customersearch = ""}}
+{{--.panel.panel-default>.panel-heading>form.input-group.input-group-lg>input.form-control.input-lg+span.input-group-btn>button.btn.button-brown.btn-lg--}}
+{{--.panel-body>h3+table.table.table-hover.table-striped>tr>th*4^tr>td*4--}}
 <div class="panel panel-default">
     <div class="panel-heading">
         <h1>
