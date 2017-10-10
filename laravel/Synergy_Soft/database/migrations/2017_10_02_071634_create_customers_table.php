@@ -16,7 +16,7 @@ class CreateCustomersTable extends Migration
         Schema::create('tbl_customers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('companyName');
-            $table->boolean('isActive');
+            $table->boolean('isActive')->default(1);
             $table->string('email');
             $table->string('phone1');
             $table->string('phone2')->nullable();
@@ -34,10 +34,10 @@ class CreateCustomersTable extends Migration
             $table->string('faxNumber')->nullable();
             $table->string('initals');
             $table->string('bankaccountNumber');
-            $table->integer('balance');
-            $table->integer('profit');
-            $table->integer('invoices');
-            $table->string('btwCode');
+            $table->integer('balance')->nullable();
+            $table->integer('profit')->nullable();
+            $table->integer('invoices')->nullable();
+            $table->string('btwCode')->nullable();
             $table->timestamps();
         });
     }

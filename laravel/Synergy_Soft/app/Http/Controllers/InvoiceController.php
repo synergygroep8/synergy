@@ -114,8 +114,12 @@ class InvoiceController extends Controller
 
     public function edit($id)
     {
-
+        $invoice = Invoice::find($id)->first();
+        $project = $invoice->project;
+        return view('invoices.edit', compact('invoice', 'project'));
     }
+
+
 
     public function destroy($id)
     {
