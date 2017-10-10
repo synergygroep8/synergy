@@ -123,6 +123,8 @@
 
         </div>
     </div>
+
+    <a class="btn button-brown" href="../customers">Back</a>
 @endsection
 
 <!--.panel.panel-default>.panel-heading>h3.panel-title^.panel.body>table.table.table-striped.table-hover>tr>th*4^tr>td*4-->

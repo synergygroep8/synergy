@@ -1,7 +1,7 @@
 @extends ('layouts.master-dash')
 
 @section ('mainbar')
-    <a href="../">Back</a>
+
     <div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title">
@@ -60,4 +60,6 @@
             </table>
         </div>
     </div>
+
+    <a class="btn button-brown" href="../invoices">Back</a>
 @endsection
