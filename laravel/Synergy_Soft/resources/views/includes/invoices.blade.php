@@ -16,7 +16,7 @@
                     <div class="input-group input-group-lg">
                         <input type="text" class="form-control input-lg" name="q" placeholder="Invoice id, invoice nr"/>
                         <span class="input-group-btn">
-                            <button class="btn btn-primary btn-lg" type="submit">Search</button>
+                            <button class="btn button-brown btn-lg" type="submit">Search</button>
                         </span>
                     </div>
                 </form>
@@ -36,7 +36,7 @@
                     <td>{{$openInvoice->project->customer->companyName}}</td>
                     <td>{{count($openInvoice->project())}}</td>
                     <td></td>
-                    <td><a class="btn btn-danger" href="/invoice/{{$openInvoice->id}}">View</a></td>
+                    <td><a class="btn button-brown" href="/invoices/{{$openInvoice->id}}">View</a></td>
                 </tr>
             @endforeach
         </table>
@@ -53,7 +53,7 @@
                     <td>{{$closedInvoice->project->customer->companyName}}</td>
                     <td>{{count($closedInvoice->project())}}</td>
                     <td></td>
-                    <td><a class="btn btn-success" href="/invoice/{{$closedInvoice->id}}">View</a></td>
+                    <td><a class="btn button-brown" href="/invoices/{{$closedInvoice->id}}">View</a></td>
                 </tr>
             @endforeach
         </table>

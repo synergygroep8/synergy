@@ -29,24 +29,31 @@ Route::get('/logout', 'UserController@getLogout')->name('logout');
 /* Dashboard (for every user) */
 Route::get('/dashboard', 'UserController@getDashboard')->middleware('auth')->name('dashboard');
 /* Search for companies */
-Route::get('/customer/search', 'CustomerController@searchCompany')->middleware('auth')->name('searchcompany');
+Route::get('/customers/search', 'CustomerController@searchCompany')->middleware('auth')->name('searchcompany');
 
 /*Add Customer*/
-Route::get('/customer/create','CustomerController@getCreate')->name('createcustomer');
+Route::get('/customers/create','CustomerController@getCreate')->name('createcustomer');
 
-Route::post('/customer/create','CustomerController@postCreate');
+Route::post('/customers/create','CustomerController@postCreate');
 
 /* Customer detail page */
-Route::get('/customer/{id}', 'CustomerController@show')->middleware('auth')->name('customerdetail');
+Route::get('/customers/{id}', 'CustomerController@show')->middleware('auth')->name('customerdetail');
 
 
 //==============================================INSERT CODE======================================================
 
+Route::get('/invoices', function() {
+    return redirect()->route('dashboard');
+});
 
+Route::get('/customers', function() {
+    return redirect()->route('dashboard');
+});
 /* Search for invoices*/
-Route::get('/invoice/search', 'InvoiceController@searchInvoice')->middleware('auth')->name('searchinvoice'); // INSERT CODE
+Route::get('/invoices/search', 'InvoiceController@searchInvoice')->middleware('auth')->name('searchinvoice'); // INSERT CODE
 /* Invoice detail page */
-Route::get('/invoice/{id}', 'InvoiceController@show')->middleware('auth')->name('invoicedetail');
+Route::get('/invoices/{id}', 'InvoiceController@show')->middleware('auth')->name('invoicedetail');
+
 
 /* Search for projects */
 Route::get('/projects/search', 'ProjectController@searchProjects');
@@ -61,7 +68,7 @@ Route::get('/projects/{id}/invoices', 'InvoiceController@index')->name('listInvo
 
 Route::get('/projects/{pid}/invoices/{id}', 'InvoiceController@showFromProject');
 
-Route::get('/projects/{id}', 'ProjectController@detail');
+Route::get('/projects/{id}', 'ProjectController@show');
 /* Create invoice from project*/
 
 
