@@ -106,6 +106,14 @@ class CustomerController extends Controller
     {
 
     }
+    public  function getCreate()
+    {
+        return view('customers.create');
+    }
 
+    public  function PostCreate($id)
+    {
+
+    }
 
 }
