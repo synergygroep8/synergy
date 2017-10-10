@@ -97,6 +97,8 @@
             <select name="department" id="department" class="form-control">
                 <option value="0">Admin</option>
                 <option value="1">Finance</option>
+                <option value="2">Sales</option>
+
             </select>
         </div>
         <div class="form-group">
