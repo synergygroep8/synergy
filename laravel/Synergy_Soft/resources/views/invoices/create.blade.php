@@ -9,7 +9,7 @@
             <h3 class="panel-title">Create a new invoice</h3>
         </div>
         <div class="panel-body">
-            <form action="{{action('InvoiceController@store')}}" method="post">
+            <form action="{{route('createInvoice', $project->id)}}" method="post">
                 {{csrf_field()}}
                 <input type="hidden" name="customerId" value="{{$project->customer->id}}" readonly required>
                 <input type="hidden" name="projectId" value="{{$project->id}}" readonly required>
