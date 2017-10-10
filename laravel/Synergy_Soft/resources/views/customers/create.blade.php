@@ -7,18 +7,19 @@
 @section('mainbar')
 
     <form action="" method="post">
+        {{csrf_field()}}
         <div class="form-group">
-            <label for="Name">Compeny Name</label>
-            <input class="form-control" type="text" name="Name" placeholder="Name">
+            <label for="companyName">Company name</label>
+            <input class="form-control" type="text" name="companyName" placeholder="Name">
         </div>
 
         <div class="form-group">
-            <label for="Residence">residence 1</label>
-            <input class="form-control" type="text" name="Residence" placeholder="Residence">
+            <label for="residence">residence 1</label>
+            <input class="form-control" type="text" name="residence" placeholder="Residence">
         </div>
         <div class="form-group">
-            <label for="Adress">Adress 1</label>
-            <input class="form-control" type="text" name="Adress" placeholder="Adress">
+            <label for="adress">Adress 1</label>
+            <input class="form-control" type="text" name="adress" placeholder="Adress">
         </div>
         <div class="form-group">
             <label for="houseNumber">house number</label>
@@ -26,11 +27,11 @@
         </div>
         <div class="form-group">
             <label for="zipCode">Zip codes</label>
-            <input type="text" name="ZipCode" placeholder="Zip code" class="form-control">
+            <input type="text" name="zipCode" placeholder="Zip code" class="form-control">
         </div>
         <div class="form-group">
-            <label for="phoneNumber">phone number</label>
-            <input type="text" name="phoneNumber" placeholder="0653338519" class="form-control">
+            <label for="phone1">phone number</label>
+            <input type="text" name="phone1" placeholder="0653338519" class="form-control">
         </div>
         <div class="form-group">
             <label for="email">E-mail</label>
@@ -41,7 +42,15 @@
             <input type="text" name="contact" placeholder="Jaapy Kreekel" class="form-control">
         </div>
         <div class="form-group">
-            <input type="submit" class="btn btn-primary">
+            <label for="initals">Initals</label>
+            <input type="text" name="initals" placeholder="J.K" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="bankaccountNumber">Bankaccount number</label>
+            <input type="text" name="bankaccountNumber" placeholder="iban 00 000000" class="form-control">
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn button-brown">
         </div>
     </form>
 

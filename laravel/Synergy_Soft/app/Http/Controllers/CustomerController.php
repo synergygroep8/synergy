@@ -111,8 +111,52 @@ class CustomerController extends Controller
         return view('customers.create');
     }
 
-    public  function PostCreate($id)
+    public  function PostCreate(Request $request)
     {
+
+        $this->validate($request,[
+
+            'companyName'                   => 'unique:tbl_customers|required',
+            'residence'                     =>'required',
+            'adress'                        =>'required',
+            'houseNumber'                   =>'required',
+            'zipCode'                       =>'required',
+            'phone1'                        =>'unique:tbl_customers|required',
+            'email'                         =>'email|required',
+            'contact'                       =>'required',
+            'initals'                       =>'required',
+            'bankaccountNumber'             =>'required'
+        ]);
+            $companyName                    = $request['companyName'];
+            $residence                      = $request['residence'];
+            $adress                         = $request['adress'];
+            $houseNumber                    = $request['houseNumber'];
+            $zipCode                        = $request['zipCode'];
+            $phone1                         = $request['phone1'];
+            $email                          = $request['email'];
+            $contact                        = $request['contact'];
+            $initals                        = $request['initals'];
+            $bankaccountNumber              = $request['bankaccountNumber'];
+
+            $customer                       = new Customer();
+
+            $customer->companyName          = $companyName;
+            $customer->residence1           = $residence;
+            $customer->address1              = $adress;
+            $customer->houseNumber1         = $houseNumber;
+            $customer->zipCode1             = $zipCode;
+            $customer->phone1               = $phone1;
+            $customer->email                = $email;
+            $customer->contactPerson        = $contact;
+            $customer->initals              = $initals;
+            $customer->bankaccountNumber    = $bankaccountNumber;
+
+            $customer->save();
+
+
+
+
+
 
     }
 
