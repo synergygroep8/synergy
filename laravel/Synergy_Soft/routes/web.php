@@ -36,7 +36,7 @@ Route::get('/customer/{id}', 'CustomerController@show')->middleware('auth')->nam
 /*Add Customer*/
 Route::get('/customer/create','CustomerController@getCreate');
 
-Route::post('/customer/create','CustomerController@PostCreate');
+Route::post('/customer/create','CustomerController@postCreate');
 
 //==============================================INSERT CODE======================================================
 
@@ -51,8 +51,9 @@ Route::get('/projects/search', 'ProjectController@searchProjects');
 /*show projects list */
 Route::get('/projects/list', 'ProjectController@index');
 /* Project detail page */
-Route::get('/projects/detail', 'ProjectController@detail');
-
+Route::get('/projects/{id}', 'ProjectController@detail');
+/* Create invoice from project*/
+Route::get('/projects/{id}/invoices/create', 'InvoiceController@getCreate');
 
 //==============================================INSERT CODE======================================================
 

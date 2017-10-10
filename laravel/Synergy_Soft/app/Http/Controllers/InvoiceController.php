@@ -85,7 +85,7 @@ class InvoiceController extends Controller
         }
 
         $invoice = new Invoice();
-        
+
         $invoice->pId = $projectId;
         $invoice->invoiceNr = $invoiceNr;
         $invoice->date = $date;
