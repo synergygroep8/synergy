@@ -4,3 +4,8 @@
     sales
 @endsection
 
+@section('mainbar')
+
+@include('customers.index')
+
+@endsection

@@ -45,6 +45,8 @@
             @include ('includes.menus.finance')
         @elseif (Auth::user()->department == 0)
             @include ('includes.menus.admin')
+        @elseif (Auth::user()->department == 2)
+            @include ('includes.menus.sales')
         @endif
     </div>
 </div>
