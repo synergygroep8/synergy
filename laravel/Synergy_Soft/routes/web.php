@@ -60,6 +60,10 @@ Route::get('/projects/search', 'ProjectController@searchProjects');
 /*show projects list */
 Route::get('/projects/list', 'ProjectController@index');
 /* Project detail page */
+Route::get('/projects/{pid}/invoices/{id}/edit', 'InvoiceController@edit');
+
+Route::post('/projects/{pid}/invoices/{id}', 'InvoiceController@postEdit')->name('editInvoice');
+
 Route::get('/projects/{id}/invoices/create', 'InvoiceController@getCreate');
 
 Route::post('/projects/{id}/invoices', 'InvoiceController@store')->name('createInvoice');
