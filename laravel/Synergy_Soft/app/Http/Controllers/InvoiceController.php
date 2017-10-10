@@ -23,6 +23,11 @@ class InvoiceController extends Controller
         return view('invoices.show', compact('invoice'));
     }
 
+    public function getCreate()
+    {
+        return view('invoices.create');
+    }
+
     public function searchInvoice()
     {
         $keyword = Input::get('q');
@@ -51,9 +56,45 @@ class InvoiceController extends Controller
         return view('searches.invoiceresults', compact('customerInvoiceID', 'customerInvoiceNr'));
     }
 
-    public function store()
+    public function store(Request $request, $id)
     {
+        $this->validate($request, [
+            'customerId' => 'required',
+            'projectId' => 'required',
+            'invoiceNr' => 'required',
+            'date' => 'required',
+            'invoiceTotal' => 'required',
+            'paid' => 'required',
+            'description' => 'required',
+            'ledgerNumber' => 'required'
+        ]);
+        $customerId = $request['customerId'];
+        $projectId = $request['projectId'];
 
+        $invoiceNr = $request['invoiceNr'];
+        $date = $request['date'];
+        $invoiceTotal = $request['invoiceTotal'];
+        $paid = $request['paid'];
+        $description = $request['description'];
+        $ledgerNumber = $request['ledgerNumber'];
+
+        $project = Project::find($id);
+        if ($project->customer->id != $customerId || $project->id != $projectId)
+        {
+            return redirect()->back();
+        }
+
+        $invoice = new Invoice();
+        
+        $invoice->pId = $projectId;
+        $invoice->invoiceNr = $invoiceNr;
+        $invoice->date = $date;
+        $invoice->invoiceTotal = $invoiceTotal;
+        $invoice->paid = $paid;
+        $invoice->description = $description;
+        $invoice->ledgerNumber = $ledgerNumber;
+
+        $invoice->save();
     }
 
     public function edit($id)
