@@ -9,7 +9,7 @@
     <div id="customermenu" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
         <div class="panel-body">
             <ul class="remove-bullet">
-                <li><a href="#">Add customer</a></li>
+                <li><a href="{{route('createcustomer')}}">Add customer</a></li>
                 <li><a href="#">Edit/remove customer</a></li>
             </ul>
         </div>

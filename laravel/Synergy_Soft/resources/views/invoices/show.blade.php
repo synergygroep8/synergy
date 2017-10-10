@@ -1,6 +1,7 @@
 @extends ('layouts.master-dash')
 
 @section ('mainbar')
+    <a href="../">Back</a>
     <div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title">

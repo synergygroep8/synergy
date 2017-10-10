@@ -32,7 +32,7 @@ Route::get('/dashboard', 'UserController@getDashboard')->middleware('auth')->nam
 Route::get('/customer/search', 'CustomerController@searchCompany')->middleware('auth')->name('searchcompany');
 
 /*Add Customer*/
-Route::get('/customer/create','CustomerController@getCreate');
+Route::get('/customer/create','CustomerController@getCreate')->name('createcustomer');
 
 Route::post('/customer/create','CustomerController@postCreate');
 
@@ -58,6 +58,8 @@ Route::get('/projects/{id}/invoices/create', 'InvoiceController@getCreate');
 Route::post('/projects/{id}/invoices', 'InvoiceController@store')->name('createInvoice');
 
 Route::get('/projects/{id}/invoices', 'InvoiceController@index')->name('listInvoice');
+
+Route::get('/projects/{pid}/invoices/{id}', 'InvoiceController@showFromProject');
 
 Route::get('/projects/{id}', 'ProjectController@detail');
 /* Create invoice from project*/

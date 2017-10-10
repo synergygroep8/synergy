@@ -30,6 +30,12 @@ class InvoiceController extends Controller
         return view('invoices.show', compact('invoice'));
     }
 
+    public function showFromProject($pid, $id)
+    {
+        $invoice = Invoice::where('id', $id)->where('pId', $pid)->first();
+        return view('invoices.show', compact('invoice'));
+    }
+
     public function getCreate($id)
     {
         $project = Project::find($id);
