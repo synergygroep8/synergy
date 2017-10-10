@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Customer;
 use App\Invoice;
 use App\Project;
 use App\User;
@@ -35,7 +36,8 @@ class UserController extends Controller
             case 0:
                 $openInvoices = Invoice::where('paid', '0')->get();
                 $closedInvoices = Invoice::where('paid', '1')->get();
-                return view('dashboards.admin-dash', compact('openInvoices', 'closedInvoices'));
+                $companies  = Customer::all();
+                return view('dashboards.admin-dash', compact('openInvoices', 'closedInvoices'))->with('companies',$companies);
                 break;
             case 1:
 
@@ -49,7 +51,8 @@ class UserController extends Controller
             case 2:
 //                $openProject = Project::where('paid', '0')->get();
 //                $closedProject = Project::where('paid', '1')->get();
-                return view('dashboards.sales-dash', compact('openProjects', 'closedProjects'));
+                $companies  = Customer::all();
+                return view('dashboards.sales-dash', compact('openProjects', 'closedProjects'))->with('companies',$companies);
                 break;
 
                 ///Default
