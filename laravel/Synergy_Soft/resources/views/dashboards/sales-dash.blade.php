@@ -7,5 +7,5 @@
 @section('mainbar')
 
 @include('customers.index')
-
+@include('includes.projects')
 @endsection
