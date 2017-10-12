@@ -36,7 +36,7 @@ class UserController extends Controller
             case 0:
                 $openInvoices = Invoice::where('paid', '0')->get();
                 $closedInvoices = Invoice::where('paid', '1')->get();
-                $companies  = Customer::all();
+                $companies  = Customer::paginate(10);
                 return view('dashboards.admin-dash', compact('openInvoices', 'closedInvoices'))->with('companies',$companies);
                 break;
             case 1:
@@ -44,14 +44,15 @@ class UserController extends Controller
                 //$openInvoices = Invoice::with('project')->with('project.customer');
                 $openInvoices = Invoice::where('paid', '0')->get();
                 $closedInvoices = Invoice::where('paid', '1')->get();
+                $companies  = Customer::paginate(10);
                 //return $openInvoices[0]->project->customer;
-                return view('dashboards.finance-dash', compact('openInvoices', 'closedInvoices'));
+                return view('dashboards.finance-dash', compact('openInvoices', 'closedInvoices', 'companies'));
                 break;
 
             case 2:
 //                $openProject = Project::where('paid', '0')->get();
 //                $closedProject = Project::where('paid', '1')->get();
-                $companies  = Customer::all();
+                $companies  = Customer::paginate(10);
                 return view('dashboards.sales-dash', compact('openProjects', 'closedProjects'))->with('companies',$companies);
                 break;
 

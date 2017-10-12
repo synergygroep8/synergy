@@ -1,6 +1,6 @@
 <div class="panel panel-default">
     <div class="panel-heading">
-        <form action="{{route('searchcompany')}}" class="input-group input-group-lg"><input type="text" placeholder="Comapney name, company id, Address, Residence" class="form-control input-lg" name="q"><span
+        <form action="{{route('searchcompany')}}" class="input-group input-group-lg"><input type="text" placeholder="Company name, Company id, Address, Residence" class="form-control input-lg" name="q"><span
                     class="input-group-btn">
     <button type="submit" class="btn button-brown btn-lg">Search</button>
     </span></form>
@@ -16,13 +16,15 @@
             </tr>
             @foreach($companies as $company)
                 <tr>
-                    <td></td>
+                    <td>{{$company->companyName}}</td>
                     <td></td>
                     {{--<td></td>--}}
                     <td></td>
                 </tr>
             @endforeach
+
         </table>
+        {{ $companies->links() }}
+
     </div>
-        
 </div>

@@ -1,7 +1,7 @@
 <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingTwo">
         <h4 class="panel-title">
-            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#customermenu" aria-expanded="false" aria-controls="customermenu">
+            <a class="collapsed btn-block" role="button" data-toggle="collapse" data-parent="#accordion" href="#customermenu" aria-expanded="false" aria-controls="customermenu">
                 Customers
             </a>
         </h4>

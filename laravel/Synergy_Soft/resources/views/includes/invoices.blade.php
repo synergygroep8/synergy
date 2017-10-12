@@ -3,7 +3,6 @@
 {{--.panel-body>h3+table.table.table-hover.table-striped>tr>th*4^tr>td*4--}}
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h1>
             <!--<form action="route('customerdetail', $customersearch)}}" method="post">
                 <div class="col-lg">
                     <div class="input-group input-group-lg">
@@ -22,11 +21,11 @@
                         </span>
                     </div>
                 </form>
-        </h1>
     </div>
     <div class="panel-body">
         <h3>Open invoices</h3>
         <table class="table table-striped">
+            @if (count($openInvoices) > 0)
             <tr>
                 <th>Company name</th>
                 <th>Projects</th>
@@ -41,9 +40,15 @@
                     <td><a class="btn button-brown" href="/invoices/{{$openInvoice->id}}">View</a></td>
                 </tr>
             @endforeach
+            @else
+                <tr>
+                    There are no open invoices
+                </tr>
+            @endif
         </table>
         <h3>Closed invoices</h3>
         <table class="table table-striped">
+            @if (count($closedInvoices))
             <tr>
                 <th>Company name</th>
                 <th>Projects</th>
@@ -58,6 +63,11 @@
                     <td><a class="btn button-brown" href="/invoices/{{$closedInvoice->id}}">View</a></td>
                 </tr>
             @endforeach
+            @else
+                <tr>
+                    There are no closed invoices
+                </tr>
+            @endif
         </table>
     </div>
 </div>

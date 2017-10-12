@@ -18,7 +18,7 @@
         <div class="panel panel-default">
             <div class="panel-heading" role="tab">
                 <h4 class="panel-title">
-                    <a href="{{route('dashboard')}}">
+                    <a class="btn-block" href="{{route('dashboard')}}">
                         Home
                     </a>
                 </h4>
@@ -27,7 +27,7 @@
         <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingOne">
                 <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#accountmenu" aria-expanded="false" aria-controls="accountmenu">
+                    <a class="collapsed btn-block" role="button" data-toggle="collapse" data-parent="#accordion" href="#accountmenu" aria-expanded="false" aria-controls="accountmenu">
                         {{Auth::user()->username}}
                     </a>
                 </h4>
