@@ -1,7 +1,7 @@
 @extends ('layouts.master-dash')
 
 @section('title')
-    Finance
+    Finance Dashboard
 @endsection
 
 @section ('mainbar')
