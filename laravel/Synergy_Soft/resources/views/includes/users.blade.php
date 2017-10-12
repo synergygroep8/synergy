@@ -4,7 +4,7 @@
             <a href="#userGroup" class="btn-block" role="button" data-toggle="collapse" aria-expanded="true" aria-controls="userGroup"> Users </a>
         </h4>
     </div>
-    <div class="panel-collapse collapse in" role="tabpanel" id="userGroup" aria-labelledby="userGroupHeading" aria-expanded="true" style="">
+    <div class="panel-collapse collapse" role="tabpanel" id="userGroup" aria-labelledby="userGroupHeading" aria-expanded="true" style="">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <form action="{{route('searchuser')}}" class="input-group input-group-lg"><input type="text" placeholder="Company name, Company id, Address, Residence" class="form-control input-lg" name="q"><span
@@ -53,5 +53,6 @@
 
                 </table>
             </div>
+        </div>
     </div>
 </div>

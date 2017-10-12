@@ -1,7 +1,7 @@
 @extends ('layouts.master-dash')
 
 @section ('mainbar')
-    <a href="../">Back</a>
+
     <div class="panel panel-default">
         <div class="panel-heading">
             <h2 class="panel-title">Invoices from {{$project->projectName}}</h2>
@@ -23,7 +23,8 @@
                 <tr>There are no invoices for this project</tr>
                     @endif
             </table>
-            <a href="{{action('InvoiceController@getCreate', $project->id)}}" class="btn button-brown">Create Invoice</a>
+            <a href="{{action('InvoiceController@getCreate', $project->id)}}" class="btn btn-success">Create Invoice</a>
+            <a class="btn button-brown" href="{{route('projectshow',$project->id)}}">Back</a>
         </div>
     </div>
 @endsection

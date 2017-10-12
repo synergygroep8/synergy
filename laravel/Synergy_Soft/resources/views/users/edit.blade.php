@@ -17,11 +17,11 @@
                 <input type="hidden" name="id" value="{{$user->id}}">
                 <div class="form-group">
                     <label for="username">Username</label>
-                    <input type="text" name="username" id="username" class="form-control" value="{{$user->username}}">
+                    <input type="text" name="username" id="username" required class="form-control" value="{{$user->username}}">
                 </div>
                 <div class="form-group">
                     <label for="department">Department</label>
-                    <select name="department" id="department" class="form-control">
+                    <select name="department" id="department" required class="form-control">
                         @if ($user->department == 0)
                             <option value="0" selected>Admin</option>
                         @else
@@ -46,11 +46,11 @@
                 </div>
                 <div class="form-group">
                     <label for="password1">Password</label>
-                    <input type="password" name="password1" id="password1" class="form-control">
+                    <input type="password" name="password1" id="password1" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="password2">Verify Password</label>
-                    <input type="password" name="password2" id="password2" class="form-control">
+                    <input type="password" name="password2" id="password2" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <input type="submit" value="Update User" class="btn btn-success">
