@@ -126,7 +126,8 @@ class UserController extends Controller
 //                $openProject = Project::where('paid', '0')->get();
 //                $closedProject = Project::where('paid', '1')->get();
                 $companies  = Customer::paginate(10);
-                return view('dashboards.sales-dash', compact('openProjects', 'closedProjects'))->with('companies',$companies);
+                $projects   = Project::all();
+                return view('dashboards.sales-dash', compact('openProjects', 'closedProjects', 'projects'))->with('companies',$companies);
                 break;
 
                 ///Default

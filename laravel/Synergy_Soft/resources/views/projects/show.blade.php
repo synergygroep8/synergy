@@ -50,6 +50,14 @@
                 <td>{{$project->creditLimit}}</td>
             </tr>
         </table>
+
+
+        {{--hier mag ik een btn maken die linkt naar invoce (/projects/{id}/invoice)--}}
+
+
+        <a class="btn button-brown" href="{{route('listInvoice',$project->id)}}">Invoices</a>
+
+
     </div>
 </div>
 @endsection

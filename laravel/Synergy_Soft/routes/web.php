@@ -81,7 +81,7 @@ Route::get('/projects/create', 'ProjectController@create')->name('createProject'
 Route::post('/projects', 'ProjectController@store')->name('ProjectStore');
 
 
-Route::get('/projects/{id}', 'ProjectController@show');
+Route::get('/projects/{id}', 'ProjectController@show')->name('projectshow');
 
 Route::get('/users/create', 'UserController@create')->name('createUser');
 
