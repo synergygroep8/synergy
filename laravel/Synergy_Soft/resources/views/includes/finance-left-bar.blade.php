@@ -10,7 +10,7 @@
         <div class="panel-body">
             <ul class="remove-bullet">
                 <li><a href="#">View/edit invoices</a></li>
-                <li><a href="#">Add invoice</a></li>
+                {{--<li><a href="">Add invoice</a></li>--}}
             </ul>
         </div>
     </div>

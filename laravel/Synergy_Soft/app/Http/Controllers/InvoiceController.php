@@ -20,8 +20,9 @@ class InvoiceController extends Controller
     public function projectIndex($id)
     {
         $invoices = Invoice::where('pId', $id)->get();
+        $project = Project::find($id);
 
-        return view ('invoices.index', compact('invoices'));
+        return view ('invoices.index', compact('invoices', 'project'));
     }
 
     public function show($id)
@@ -32,6 +33,7 @@ class InvoiceController extends Controller
 
     public function showFromProject($pid, $id)
     {
+
         $invoice = Invoice::where('id', $id)->where('pId', $pid)->first();
         return view('invoices.show', compact('invoice'));
     }
@@ -44,10 +46,13 @@ class InvoiceController extends Controller
 
     public function searchInvoice()
     {
+
         $keyword = Input::get('q');
         if ($keyword == "")
         {
-            return redirect()->back();
+            $invoices = Invoice::all();
+
+            return view('invoices.list', compact('invoices'));
         }
         $customerInvoiceID = array();
         $customerInvoiceNr = array();
