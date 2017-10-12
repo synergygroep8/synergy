@@ -11,7 +11,7 @@
             </h3>
         </div>
         <div class="panel body">
-            <form action="" method="post">
+            <form action="{{route('putUser')}}" method="post">
                 {{csrf_field()}}
                 {{method_field('PUT')}}
                 <input type="hidden" name="id" value="{{$user->id}}">

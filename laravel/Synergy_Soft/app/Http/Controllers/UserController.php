@@ -8,6 +8,7 @@ use App\Project;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 
 class UserController extends Controller
 {
@@ -29,6 +30,77 @@ class UserController extends Controller
         return redirect()->route('home');
     }
 
+    public function show($id)
+    {
+        $user = User::find($id);
+        return view('users.show', compact('user'));
+    }
+
+    public function create()
+    {
+        return view('users.create');
+    }
+
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'username' => 'required',
+            'department' => 'required',
+            'password1' => 'required|min:3',
+            'password2' => 'required|same:password1|min:3'
+        ]);
+
+        $user = new User();
+        $user->username = $request->username;
+        $user->department = $request->department;
+        $user->password = bcrypt($request->password1);
+
+        $user->save();
+
+        return back();
+    }
+
+    public function edit($id)
+    {
+        $user = User::find($id);
+        return view('users.edit', compact('user'));
+    }
+
+    public function put(Request $request)
+    {
+        $this->validate($request, [
+            'id' => 'required|exists:tbl_users',
+            'username' => 'required',
+            'department' => 'required',
+            'password1' => 'required|min:3',
+            'password2' => 'required|same:password1|min:3'
+        ]);
+
+        $user = User::find($request->id);
+        $user->username = $request->username;
+        $user->department = $request->department;
+        $user->password = bcrypt($request->password1);
+
+        $user->save();
+
+        return back();
+    }
+
+    public function searchUsers()
+    {
+        $keyword = Input::get('q');
+        if ($keyword == "")
+        {
+            return redirect()->back();
+        }
+        $keyword = '%' . $keyword . '%';
+        $userID = User::where('id', 'like',$keyword)->get();
+
+        $userName = User::where('username', 'like', $keyword)->get();
+
+        return view('searches.userresults', compact('userID', 'userName'));
+    }
+
     public function getDashboard(Request $request)
     {
         switch (Auth::user()->department)
@@ -37,7 +109,8 @@ class UserController extends Controller
                 $openInvoices = Invoice::where('paid', '0')->get();
                 $closedInvoices = Invoice::where('paid', '1')->get();
                 $companies  = Customer::paginate(10);
-                return view('dashboards.admin-dash', compact('openInvoices', 'closedInvoices'))->with('companies',$companies);
+                $users = User::all();
+                return view('dashboards.admin-dash', compact('openInvoices', 'closedInvoices', 'users'))->with('companies',$companies);
                 break;
             case 1:
 

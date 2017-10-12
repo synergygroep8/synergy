@@ -9,7 +9,7 @@
     <div id="usermangagemenu" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
         <div class="panel-body">
             <ul class="remove-bullet">
-                <li><a href="#">Add User</a></li>
+                <li><a href="{{route('createUser')}}">Add User</a></li>
                 <!--<li><a href="#">Edit/remove customer</a></li>-->
             </ul>
         </div>

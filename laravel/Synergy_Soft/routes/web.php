@@ -49,6 +49,10 @@ Route::get('/invoices', function() {
 Route::get('/customers', function() {
     return redirect()->route('dashboard');
 });
+
+Route::get('/users', function() {
+    return redirect()->route('dashboard');
+});
 /* Search for invoices*/
 Route::get('/invoices/search', 'InvoiceController@searchInvoice')->middleware('auth')->name('searchinvoice'); // INSERT CODE
 /* Invoice detail page */
@@ -79,6 +83,17 @@ Route::post('/projects', 'ProjectController@store')->name('ProjectStore');
 
 Route::get('/projects/{id}', 'ProjectController@show');
 
+Route::get('/users/create', 'UserController@create')->name('createUser');
+
+Route::post('/users', 'UserController@store')->name('storeUser');
+
+Route::get('/users/{id}/edit', 'UserController@edit')->name('editUser');
+
+Route::put('/users', 'UserController@put')->name('putUser');
+
+Route::get('/users/search', 'UserController@searchUsers')->name('searchuser');
+
+Route::get('/users/{id}', 'UserController@show')->name('showuser');
 /* Create invoice from project*/
 
 
