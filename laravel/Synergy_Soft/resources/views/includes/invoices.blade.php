@@ -54,9 +54,12 @@
                         </tr>
                     @endif
                 </table>
+                @if (count($openInvoices) > 0)
+                    {{$openInvoices->links()}}
+                @endif
                 <h3>Closed invoices</h3>
                 <table class="table table-striped">
-                    @if (count($closedInvoices))
+                    @if (count($closedInvoices) > 0)
                     <tr>
                         <th>Company name</th>
                         <th>Projects</th>
@@ -77,6 +80,9 @@
                         </tr>
                     @endif
                 </table>
+                @if (count($closedInvoices) > 0)
+                    {{$closedInvoices->links()}}
+                @endif
             </div>
         </div>
     </div>

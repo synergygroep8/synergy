@@ -106,8 +106,8 @@ class UserController extends Controller
         switch (Auth::user()->department)
         {
             case 0:
-                $openInvoices = Invoice::where('paid', '0')->get();
-                $closedInvoices = Invoice::where('paid', '1')->get();
+                $openInvoices = Invoice::where('paid', '0')->paginate(10);
+                $closedInvoices = Invoice::where('paid', '1')->paginate(10);
                 $companies  = Customer::paginate(10);
                 $users = User::all();
                 $projects   = Project::paginate(10);
