@@ -1,10 +1,10 @@
 <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="userGroupHeading">
+    <div class="panel-heading" role="tab" id="projectGroupHeading">
         <h4 class="panel-title">
-            <a href="#userGroup" class="btn-block" role="button" data-toggle="collapse" aria-expanded="true" aria-controls="userGroup"> Projects </a>
+            <a href="#projectGroup" class="btn-block" role="button" data-toggle="collapse" aria-expanded="true" aria-controls="projectGroup"> Projects </a>
         </h4>
     </div>
-    <div class="panel-collapse collapse in" role="tabpanel" id="userGroup" aria-labelledby="userGroupHeading" aria-expanded="true" style="">
+    <div class="panel-collapse collapse" role="tabpanel" id="projectGroup" aria-labelledby="projectroupHeading" aria-expanded="true" style="">
         <div class="panel panel-default">
             <div class="panel-heading">
                 {{--<form action="{{route('searchuser')}}" class="input-group input-group-lg"><input type="text" placeholder="project name, Project id" class="form-control input-lg" name="q"><span--}}
@@ -31,6 +31,7 @@
                     @endforeach
 
                 </table>
+                {{$projects->links()}}
             </div>
     </div>
 </div>

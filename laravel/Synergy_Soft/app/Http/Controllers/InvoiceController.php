@@ -115,6 +115,8 @@ class InvoiceController extends Controller
         $invoice->ledgerNumber = $ledgerNumber;
 
         $invoice->save();
+
+        return redirect()->route('listInvoice', $project->id);
     }
 
     public function edit($id)

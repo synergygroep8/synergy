@@ -4,7 +4,7 @@
             <a href="#companyGroup" class="btn-block" role="button" data-toggle="collapse" aria-expanded="true" aria-controls="companyGroup"> Companies </a>
         </h4>
     </div>
-    <div class="panel-collapse collapse in" role="tabpanel" id="companyGroup" aria-labelledby="companyGroupHeading" aria-expanded="true" style="">
+    <div class="panel-collapse collapse" role="tabpanel" id="companyGroup" aria-labelledby="companyGroupHeading" aria-expanded="true" style="">
 
         <div class="panel panel-default">
             <div class="panel-heading">

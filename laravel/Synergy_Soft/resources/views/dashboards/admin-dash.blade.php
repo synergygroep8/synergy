@@ -13,6 +13,7 @@
         @include('includes.invoices')
         @include('customers.index')
         @include('includes.users')
+        @include('includes.projects')
 @endsection
 @section ('right-sidebar')
 

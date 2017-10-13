@@ -4,7 +4,7 @@
             <a href="#invoiceGroup" class="btn-block" role="button" data-toggle="collapse" aria-expanded="true" aria-controls="invoiceGroup"> Invoices </a>
         </h4>
     </div>
-    <div class="panel-collapse collapse in" role="tabpanel" id="invoiceGroup" aria-labelledby="invioceGroupHeading" aria-expanded="true" style="">
+    <div class="panel-collapse collapse" role="tabpanel" id="invoiceGroup" aria-labelledby="invioceGroupHeading" aria-expanded="true" style="">
 
         {{$customersearch = ""}}
         {{--.panel.panel-default>.panel-heading>form.input-group.input-group-lg>input.form-control.input-lg+span.input-group-btn>button.btn.button-brown.btn-lg--}}
