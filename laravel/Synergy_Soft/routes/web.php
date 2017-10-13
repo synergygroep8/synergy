@@ -36,6 +36,14 @@ Route::get('/customers/create','CustomerController@getCreate')->name('createcust
 
 Route::post('/customers/create','CustomerController@postCreate');
 
+
+///routs voor get edit voor put edit.
+
+Route::get('/customers/{id}/edit','CustomerController@edit')->name('editCostumer');
+
+Route::put('/customers/{id}', 'CustomerController@put')->name('putCostumer');
+
+
 /* Customer detail page */
 Route::get('/customers/{id}', 'CustomerController@show')->middleware('auth')->name('customerdetail');
 

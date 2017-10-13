@@ -85,15 +85,49 @@ class CustomerController extends Controller
 
     public function show($id)
     {
-        $id = Input::get('id');
+//        $id = Input::get('id');
         $customer = Customer::find($id);
 
-        //dd($customer);
-        return view('customers.show', compact('customer', 'columns'));
+
+
+//        dd($customer);
+        return view('customers.show', compact('customer'));
     }
 
-    public function store()
+    public function put(Request $request, $id   )
     {
+
+        $this->validate($request,[
+
+            'companyName'                   =>'required',
+            'residence'                     =>'required',
+            'adress'                        =>'required',
+            'houseNumber'                   =>'required',
+            'zipCode'                       =>'required',
+            'phone1'                        =>'required',
+            'email'                         =>'email|required',
+            'contact'                       =>'required',
+            'initals'                       =>'required',
+            'bankaccountNumber'             =>'required'
+        ]);
+
+        $customer = Customer::find($id);
+
+        $customer->companyName              = $request->companyName;
+        $customer->residence1               = $request->residence;
+        $customer->address1                 = $request->adress;
+        $customer->houseNumber1             = $request->houseNumber;
+        $customer->zipCode1                 = $request->zipCode;
+        $customer->phone1                   = $request->phone1;
+        $customer->email                    = $request->email;
+        $customer->contactPerson            = $request->contact;
+        $customer->initals                  = $request->initals;
+        $customer->bankaccountNumber        = $request->bankaccountNumber;
+
+        $customer->save();
+
+        return redirect()->route('customerdetail',$id);
+
 
     }
 
@@ -104,6 +138,11 @@ class CustomerController extends Controller
 
     public function edit($id)
     {
+
+        $customer = Customer::find($id);
+
+        return view('customers/edit')->with('customer', $customer);
+
 
     }
     public  function getCreate()

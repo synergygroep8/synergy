@@ -27,7 +27,9 @@
                             <td>{{$company->companyName}}</td>
                             <td></td>
                             {{--<td></td>--}}
-                            <td></td>
+                            <td>
+                                <a class="btn btn-info" href="/customers/{{$company->id}}">view</a>
+                            </td>
                         </tr>
                     @endforeach
 
