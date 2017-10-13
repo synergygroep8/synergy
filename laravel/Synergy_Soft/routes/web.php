@@ -80,6 +80,9 @@ Route::get('/projects/create', 'ProjectController@create')->name('createProject'
 
 Route::post('/projects', 'ProjectController@store')->name('ProjectStore');
 
+Route::put('/projects/{id}','ProjectController@put')->name('ProjectPut');
+
+Route::get('/projects/{id}/edit', 'ProjectController@edit')->name('projectEdit'); //werkt
 
 Route::get('/projects/{id}', 'ProjectController@show')->name('projectshow');
 

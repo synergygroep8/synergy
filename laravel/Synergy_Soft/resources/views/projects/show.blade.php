@@ -56,6 +56,8 @@
 
 
         <a class="btn button-brown" href="{{route('listInvoice',$project->id)}}">Invoices</a>
+        <a class="btn btn-warning" href="{{route('projectEdit',$project->id)}}">Edit</a>
+
 
 
     </div>

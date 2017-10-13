@@ -35,7 +35,6 @@ class ProjectController extends Controller
             'lastContact'       => 'required',
             'contactClient'     => 'required',
             'creditLimit'       => 'required',
-            'isMaintained'      => 'required'
         ]);
         if ($request->isMaintained == 'on')
         {
@@ -63,4 +62,52 @@ class ProjectController extends Controller
 
         return back();
     }
+
+    public function edit($id)
+
+    {
+        $project = Project::find($id);
+
+        return view('projects/edit')->with('project', $project);
+    }
+
+    public function put(Request $request, $id)
+    {
+        $this->validate($request,[
+
+            'projectName'       => 'required|min:4|max:190',
+            'software'          => 'required',
+            'hardware'          => 'required',
+            'OS'                => 'required',
+            'lastContact'       => 'required',
+            'contactClient'     => 'required',
+            'creditLimit'       => 'required',
+        ]);
+        if ($request->isMaintained == 'on')
+        {
+            $maintained = true;
+        }else
+        {
+            $maintained = false;
+        }
+
+        $project = Project::find($id);
+
+
+        $project->projectName   = $request->projectName;
+        $project->software      = $request->software;
+        $project->hardware      = $request->hardware;
+        $project->OS            = $request->OS;
+        $project->lastContact   = $request->lastContact;
+        $project->contactClient = $request->contactClient;
+        $project->creditLimit   = $request->creditLimit;
+        $project->isMaintained  = $maintained;
+
+        $project->save();
+
+
+        return redirect()->route('projectshow', $id);
+    }
+
+
 }
