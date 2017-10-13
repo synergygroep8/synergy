@@ -122,10 +122,50 @@ class InvoiceController extends Controller
     public function edit($id)
     {
         $invoice = Invoice::find($id)->first();
-        $project = $invoice->project;
         return view('invoices.edit', compact('invoice', 'project'));
     }
 
+    public function put(Request $request, $id, $pid)
+    {
+        $invoice = Invoice::find($id);
+        $project = Project::find($pid);
+        $this->validate($request, [
+            'customerId' => 'required',
+            'projectId' => 'required',
+            'invoiceNr' => 'required',
+            'date' => 'required|date',
+            'invoiceTotal' => 'required',
+            'description' => 'required',
+            'ledgerNumber' => 'required'
+        ]);
+
+        if ($invoice->project->customer->id != $request->customerId || $invoice->project->id != $request->projectId || $invoice->project->id != $project->id)
+        {
+            return redirect()->back();
+        }
+
+        $paid = false;
+        if ($request->paid == 'on')
+        {
+            $paid = true;
+        }
+
+
+
+        $invoice->pId = $request->projectId;
+        $invoice->invoiceNr = $request->invoiceNr;
+        $invoice->date = $request->date;
+        $invoice->BTW = '21.0';
+        $invoice->invoiceTotal = $request->invoiceTotal;
+        $invoice->paid = $paid;
+        $invoice->description = $request->description;
+        $invoice->ledgerNumber = $request->ledgerNumber;
+
+        $invoice->save();
+
+        return redirect()->route('listInvoice', $invoice->project->id);
+
+    }
 
 
     public function destroy($id)

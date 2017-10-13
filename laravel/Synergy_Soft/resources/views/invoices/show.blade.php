@@ -1,7 +1,10 @@
 @extends ('layouts.master-dash')
 
-@section ('mainbar')
+@section ('title')
+    Invoice {{$invoice->invoiceNr}} for {{$invoice->project->projectName}}
+@endsection
 
+@section ('mainbar')
     <div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title">
@@ -62,4 +65,5 @@
     </div>
 
     <a class="btn button-brown" href="../invoices">Back</a>
+    <a class="btn btn-warning" href="{{route('editInvoice', ['pid' => $invoice->project->id, 'id' => $invoice->id])}}">Edit</a>
 @endsection
