@@ -1,5 +1,7 @@
 @extends ('layouts.master-dash')
-
+@section('title')
+    Invoices from {{$project->projectName}}
+@endsection
 @section ('mainbar')
 
     <div class="panel panel-default">
