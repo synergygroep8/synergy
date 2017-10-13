@@ -84,7 +84,7 @@ Route::post('/projects/{id}/invoices', 'InvoiceController@store')->name('createI
 
 Route::get('/projects/{id}/invoices', 'InvoiceController@projectIndex')->name('listInvoice');
 
-Route::get('/projects/{pid}/invoices/{id}', 'InvoiceController@showFromProject');
+Route::get('/projects/{pid}/invoices/{id}', 'InvoiceController@showFromProject')->name('invoiceprojectshow');
 
 Route::get('/projects/create', 'ProjectController@create')->name('createProject');
 
