@@ -9,7 +9,9 @@
     <div id="customermenu" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
         <div class="panel-body">
             <ul class="remove-bullet">
+                @if (Auth::user()->department == 0 || Auth::user()->department == 2)
                 <li><a href="{{route('createcustomer')}}">Add customer</a></li>
+                @endif
                 <li><a href="#">Edit/remove customer</a></li>
             </ul>
         </div>
@@ -27,7 +29,9 @@
     <div id="projectmenu" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
         <div class="panel-body">
             <ul class="remove-bullet">
+                @if (Auth::user()->department == 0 || Auth::user()->department == 2)
                 <li><a href="{{route('createProject')}}">Add project</a></li>
+                @endif
                 <li><a href="#">Edit/remove project</a></li>
             </ul>
         </div>

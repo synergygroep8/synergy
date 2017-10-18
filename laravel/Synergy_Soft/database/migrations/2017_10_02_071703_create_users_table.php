@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->integer('department');
             $table->timestamps();
             $table->date('deleted_at')->nullable();
+            $table->string('remember_token')->nullable();
         });
     }
 

@@ -18,7 +18,7 @@ class CreateInvoicesTable extends Migration
             $table->integer('invoiceNr');
             $table->integer('pId');
             $table->date('date');
-            $table->integer('invoiceTotal');
+            $table->integer('invoiceTotal')->length(30);
             $table->boolean('paid')->nullable();
             $table->string('description');
             $table->decimal('BTW');

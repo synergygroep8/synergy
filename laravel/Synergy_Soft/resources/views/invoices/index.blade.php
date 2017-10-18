@@ -25,7 +25,9 @@
                 <tr>There are no invoices for this project</tr>
                     @endif
             </table>
+            @if (Auth::user()->department == 0 || Auth::user()->department == 1)
             <a href="{{action('InvoiceController@getCreate', $project->id)}}" class="btn btn-success">Create Invoice</a>
+            @endif
             <a class="btn button-brown" href="{{route('projectshow',$project->id)}}">Back</a>
         </div>
     </div>

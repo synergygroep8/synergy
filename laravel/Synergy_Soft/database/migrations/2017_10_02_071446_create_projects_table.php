@@ -24,7 +24,10 @@ class CreateProjectsTable extends Migration
             $table->string('lastContact');
             $table->string('contactClient');
             $table->integer('creditLimit');
+
             $table->timestamps();
+
+            $table->date('deleted_at')->nullable();
         });
     }
 

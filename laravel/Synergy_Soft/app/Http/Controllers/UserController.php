@@ -116,8 +116,8 @@ class UserController extends Controller
             case 1:
 
                 //$openInvoices = Invoice::with('project')->with('project.customer');
-                $openInvoices = Invoice::where('paid', '0')->get();
-                $closedInvoices = Invoice::where('paid', '1')->get();
+                $openInvoices = Invoice::where('paid', '0')->paginate(10);
+                $closedInvoices = Invoice::where('paid', '1')->paginate(10);
                 $companies  = Customer::paginate(10);
                 $projects   = Project::paginate(10);
                 //return $openInvoices[0]->project->customer;

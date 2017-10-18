@@ -9,3 +9,8 @@
 @include('customers.index')
 @include('includes.projects')
 @endsection
+
+@section('right-sidebar')
+    @include ('customers.help.widget')
+    @include ('projects.help.widget')
+@endsection

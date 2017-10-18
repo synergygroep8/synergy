@@ -143,7 +143,7 @@ class InvoiceController extends Controller
             'projectId' => 'required',
             'invoiceNr' => 'required',
             'date' => 'required|date',
-            'invoiceTotal' => 'required',
+            'invoiceTotal' => 'required|max:999999999|numeric',
             'description' => 'required',
             'ledgerNumber' => 'required'
         ]);
@@ -191,6 +191,6 @@ class InvoiceController extends Controller
 
     public function destroy($id)
     {
-
+        
     }
 }

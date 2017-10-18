@@ -13,7 +13,6 @@
 @include('includes.header')
 @include('includes.message-block')
 <div class="col-md-3">
-    @yield('left-sidebar')
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
         <div class="panel panel-default">
             <div class="panel-heading" role="tab">
@@ -57,7 +56,9 @@
     @yield('mainbar')
 </div>
 <div class="col-md-3">
+    <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
     @yield('right-sidebar')
+    </div>
 </div>
 <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
