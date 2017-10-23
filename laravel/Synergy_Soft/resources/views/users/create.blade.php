@@ -44,3 +44,9 @@
 
     <a class="btn button-brown" href="../users">Back</a>
 @endsection
+@section('right-sidebar')
+
+    @include('users.help.create')
+
+
+@endsection

@@ -61,3 +61,7 @@
 
     <a class="btn button-brown" href="/users/{{$user->id}}">Back</a>
 @endsection
+
+@section('right-sidebar')
+@include('users.help.edit')
+@endsection
