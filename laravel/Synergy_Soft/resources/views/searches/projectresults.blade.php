@@ -123,17 +123,19 @@
                         <th>Company Name</th>
                         <th>View</th>
                     </tr>
+                    @foreach($customerName as $item1)
 
-                    @foreach ($customerName as $item)
+                        @foreach ($item1 as $item2)
                         <tr>
-                            <td>{{$item->id}}</td>
-                            <td>{{$item->projectName}}</td>
-                            <td>{{$item->customer->id}}</td>
-                            <td>{{$item->customer->companyName}}</td>
+                            <td>{{$item2->id}}</td>
+                            <td>{{$item2->projectName}}</td>
+                            <td>{{$item2->customer->id}}</td>
+                            <td>{{$item2->customer->companyName}}</td>
                             <td>
                                 <a role="button" href="/project/{{$item->id}}" class="btn btn-info">View</a>
                             </td>
                         </tr>
+                        @endforeach
                     @endforeach
                 </table>
             @endif

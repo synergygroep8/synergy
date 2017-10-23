@@ -43,8 +43,8 @@
                     @foreach($openInvoices as $openInvoice)
                         <tr>
                             <td>{{$openInvoice->project->customer->companyName}}</td>
-                            <td>{{count($openInvoice->project())}}</td>
-                            <td></td>
+                            <td>{{$openInvoice->project->customer->projects->count()}}</td>
+                            <td>€ {{$openInvoice->project->invoices->sum('invoiceTotal')}}</td>
                             <td><a class="btn button-brown" href="/invoices/{{$openInvoice->id}}">View</a></td>
                         </tr>
                     @endforeach
@@ -69,8 +69,8 @@
                     @foreach($closedInvoices as $closedInvoice)
                         <tr>
                             <td>{{$closedInvoice->project->customer->companyName}}</td>
-                            <td>{{count($closedInvoice->project())}}</td>
-                            <td></td>
+                            <td>{{$closedInvoice->project->customer->projects->count()}}</td>
+                            <td>€ {{$closedInvoice->project->invoices->sum('invoiceTotal')}}</td>
                             <td><a class="btn button-brown" href="/invoices/{{$closedInvoice->id}}">View</a></td>
                         </tr>
                     @endforeach

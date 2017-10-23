@@ -25,7 +25,7 @@
                     @foreach($companies as $company)
                         <tr>
                             <td>{{$company->companyName}}</td>
-                            <td></td>
+                            <td>{{$company->projects->count()}}</td>
                             {{--<td></td>--}}
                             <td>
                                 <a class="btn btn-info" href="/customers/{{$company->id}}">view</a>
