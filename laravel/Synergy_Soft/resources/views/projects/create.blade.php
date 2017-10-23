@@ -13,7 +13,7 @@
         <div class="form-group">
 
             <label for="cid">Cid</label>
-            <select class="form-control" name="cid">
+            <select class="form-control" id="cid" name="cid">
                 @foreach($customers as $customer)
                     <option value="{{$customer->id}}">{{$customer->companyName}}</option>
                 @endforeach

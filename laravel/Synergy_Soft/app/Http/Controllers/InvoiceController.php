@@ -102,6 +102,10 @@ class InvoiceController extends Controller
         {
             return redirect()->back();
         }
+        if ($invoiceTotal < 0)
+        {
+            return redirect()->back();
+        }
 
         $invoice = new Invoice();
 
@@ -119,37 +123,54 @@ class InvoiceController extends Controller
         return redirect()->route('listInvoice', $project->id);
     }
 
-    public function edit($id)
+    public function edit($pid, $id)
     {
-        $invoice = Invoice::find($id)->first();
+
+        $invoice = Invoice::find($id);
+//        dd($invoice);
+
         return view('invoices.edit', compact('invoice', 'project'));
     }
 
-    public function put(Request $request, $id, $pid)
+    public function put(Request $request, $pid, $id)
     {
+
         $invoice = Invoice::find($id);
         $project = Project::find($pid);
+
         $this->validate($request, [
             'customerId' => 'required',
             'projectId' => 'required',
             'invoiceNr' => 'required',
             'date' => 'required|date',
-            'invoiceTotal' => 'required',
+            'invoiceTotal' => 'required|max:999999999|numeric',
             'description' => 'required',
             'ledgerNumber' => 'required'
         ]);
+//        dd($request);
+        if (count(Invoice::where('invoiceNr',$request->invoiceNr)->get()) > 1)
+        {
+            return response('Forbidden', 403);
+        }
 
         if ($invoice->project->customer->id != $request->customerId || $invoice->project->id != $request->projectId || $invoice->project->id != $project->id)
         {
             return redirect()->back();
         }
 
-        $paid = false;
-        if ($request->paid == 'on')
+        if ($request->invoiceTotal < 0)
         {
-            $paid = true;
+            return redirect()->back();
         }
 
+
+//        if ($request->paid == 'on')
+//        {
+//            $paid = 1;
+//        }
+//        else {
+//            $paid = 0;
+//        }
 
 
         $invoice->pId = $request->projectId;
@@ -157,19 +178,19 @@ class InvoiceController extends Controller
         $invoice->date = $request->date;
         $invoice->BTW = '21.0';
         $invoice->invoiceTotal = $request->invoiceTotal;
-        $invoice->paid = $paid;
+        $invoice->paid = $request->paid;
         $invoice->description = $request->description;
         $invoice->ledgerNumber = $request->ledgerNumber;
 
         $invoice->save();
 
-        return redirect()->route('listInvoice', $invoice->project->id);
-
+        return redirect()->route('invoiceprojectshow', ['pid' => $invoice->project->id, 'id' => $invoice->id]);
+//        return back();
     }
 
 
     public function destroy($id)
     {
-
+        
     }
 }

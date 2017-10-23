@@ -13,6 +13,8 @@ class CustomerController extends Controller
 {
     //
 
+
+
     public function search()
     {
         //get keywords input for search
@@ -86,9 +88,13 @@ class CustomerController extends Controller
     public function show($id)
     {
 //        $id = Input::get('id');
-        $customer = Customer::find($id);
+        $customer = Customer::where('id', $id)->first();
 
 
+        if (count($customer) <= 0)
+        {
+            return redirect('/customers/');
+        }
 
 //        dd($customer);
         return view('customers.show', compact('customer'));
@@ -99,17 +105,26 @@ class CustomerController extends Controller
 
         $this->validate($request,[
 
-            'companyName'                   =>'required',
-            'residence'                     =>'required',
-            'adress'                        =>'required',
-            'houseNumber'                   =>'required',
-            'zipCode'                       =>'required',
-            'phone1'                        =>'required',
-            'email'                         =>'email|required',
-            'contact'                       =>'required',
-            'initals'                       =>'required',
-            'bankaccountNumber'             =>'required'
+            'companyName'                   =>'required|max:191',
+            'residence'                     =>'required|max:191',
+            'adress'                        =>'required|max:191',
+            'houseNumber'                   =>'required|max:99999999999|numeric',
+            'zipCode'                       =>'required|max:191',
+//            'phone1'                        =>'required|max:191|regex:/^\+?(\d{1,2}) ?(\d{3}) ?(\d{3}) ?(\d{3})$/',
+            'phone1'                        =>'required|max:191',
+            'email'                         =>'email|required|max:191',
+            'contact'                       =>'required|max:191',
+            'initals'                       =>'required|max:191',
+            'bankaccountNumber'             =>'required|max:191'
         ]);
+
+        $checkphone1 = $request->phone1;
+        $checkphone1 = str_replace(" ", "", $checkphone1);
+        $pattern = '/^\+?(\d{1,2})(\d{3})(\d{3})(\d{3})$/';
+        $matches = array();
+        preg_match($pattern, $checkphone1, $matches);
+
+        dd($matches);
 
         $customer = Customer::find($id);
 
@@ -139,7 +154,12 @@ class CustomerController extends Controller
     public function edit($id)
     {
 
-        $customer = Customer::find($id);
+        $customer = Customer::where('id', $id)->first();
+
+        if (count($customer) <= 0)
+        {
+            return redirect('/customers/');
+        }
 
         return view('customers/edit')->with('customer', $customer);
 
@@ -155,40 +175,32 @@ class CustomerController extends Controller
 
         $this->validate($request,[
 
-            'companyName'                   => 'unique:tbl_customers|required',
-            'residence'                     =>'required',
-            'adress'                        =>'required',
-            'houseNumber'                   =>'required',
-            'zipCode'                       =>'required',
-            'phone1'                        =>'unique:tbl_customers|required',
-            'email'                         =>'email|required',
-            'contact'                       =>'required',
-            'initals'                       =>'required',
-            'bankaccountNumber'             =>'required'
+            'companyName'                   => 'unique:tbl_customers|required|max:191',
+            'residence'                     =>'required|max:191',
+            'adress'                        =>'required|max:191',
+            'houseNumber'                   =>'required|numeric|max:99999999999',
+            'zipCode'                       =>'required|max:191',
+            'phone1'                        =>'unique:tbl_customers|required|max:191|regex:/^\+?(\d{1,2}) ?(\d{3}) ?(\d{3}) ?(\d{3})$/',
+            'email'                         =>'email|required|max:191',
+            'contact'                       =>'required|max:191',
+            'initals'                       =>'required|max:191',
+            'bankaccountNumber'             =>'required|max:191'
         ]);
-            $companyName                    = $request['companyName'];
-            $residence                      = $request['residence'];
-            $adress                         = $request['adress'];
-            $houseNumber                    = $request['houseNumber'];
-            $zipCode                        = $request['zipCode'];
-            $phone1                         = $request['phone1'];
-            $email                          = $request['email'];
-            $contact                        = $request['contact'];
-            $initals                        = $request['initals'];
-            $bankaccountNumber              = $request['bankaccountNumber'];
+
+
 
             $customer                       = new Customer();
 
-            $customer->companyName          = $companyName;
-            $customer->residence1           = $residence;
-            $customer->address1              = $adress;
-            $customer->houseNumber1         = $houseNumber;
-            $customer->zipCode1             = $zipCode;
-            $customer->phone1               = $phone1;
-            $customer->email                = $email;
-            $customer->contactPerson        = $contact;
-            $customer->initals              = $initals;
-            $customer->bankaccountNumber    = $bankaccountNumber;
+            $customer->companyName          = $request->companyName;
+            $customer->residence1           = $request->residence;
+            $customer->address1             = $request->adress;
+            $customer->houseNumber1         = $request->houseNumber;
+            $customer->zipCode1             = $request->zipCode;
+            $customer->phone1               = $request->phone1;
+            $customer->email                = $request->email;
+            $customer->contactPerson        = $request->contact;
+            $customer->initals              = $request->initals;
+            $customer->bankaccountNumber    = $request->bankaccountNumber;
 
             $customer->save();
 

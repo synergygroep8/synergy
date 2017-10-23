@@ -7,10 +7,10 @@
     <div class="panel-collapse collapse" role="tabpanel" id="projectGroup" aria-labelledby="projectroupHeading" aria-expanded="true" style="">
         <div class="panel panel-default">
             <div class="panel-heading">
-                {{--<form action="{{route('searchuser')}}" class="input-group input-group-lg"><input type="text" placeholder="project name, Project id" class="form-control input-lg" name="q"><span--}}
-                            {{--class="input-group-btn">--}}
-            {{--<button type="submit" class="btn button-brown btn-lg">Search</button>--}}
-            {{--</span></form>--}}
+                <form action="{{route('searchproject')}}" class="input-group input-group-lg"><input type="text" placeholder="Project name, Project id, Company name, Company id" class="form-control input-lg" name="q"><span
+                            class="input-group-btn">
+            <button type="submit" class="btn button-brown btn-lg">Search</button>
+            </span></form>
             </div>
             <div class="panel-body">
                 <h3>Project list</h3>
@@ -33,5 +33,6 @@
                 </table>
                 {{$projects->links()}}
             </div>
+        </div>
     </div>
 </div>

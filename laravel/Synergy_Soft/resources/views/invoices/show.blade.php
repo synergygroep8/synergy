@@ -65,5 +65,7 @@
     </div>
 
     <a class="btn button-brown" href="../invoices">Back</a>
+    @if (Auth::user()->department == 0 || Auth::user()->department == 1)
     <a class="btn btn-warning" href="{{route('editInvoice', ['pid' => $invoice->project->id, 'id' => $invoice->id])}}">Edit</a>
+    @endif
 @endsection

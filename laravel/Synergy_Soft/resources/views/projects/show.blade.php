@@ -54,8 +54,9 @@
 
         {{--hier mag ik een btn maken die linkt naar invoce (/projects/{id}/invoice)--}}
 
-
+        @if (Auth::user()->department == 0 || Auth::user()->department == 1)
         <a class="btn button-brown" href="{{route('listInvoice',$project->id)}}">Invoices</a>
+        @endif
         <a class="btn btn-warning" href="{{route('projectEdit',$project->id)}}">Edit</a>
 
 

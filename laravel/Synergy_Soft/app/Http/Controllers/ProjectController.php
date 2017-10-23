@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Customer;
 use App\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 class ProjectController extends Controller
 {
@@ -12,6 +13,42 @@ class ProjectController extends Controller
     {
         $project = Project::find($id);
         return view('projects.show', compact('project'));
+    }
+
+    public function verifyDelete($id)
+    {
+        $project = Project::find($id);
+        return view('projects.verifyDelete', compact('project'));
+    }
+
+    public function searchProject()
+    {
+        $keyword = Input::get('q');
+        if ($keyword == "")
+        {
+            $projects = Project::all();
+
+            return view('projects.list', compact('projects'));
+        }
+        $customer = Customer::where('id', $keyword)->first();
+
+        $keyword = '%' . $keyword . '%';
+        $customerN = Customer::where('companyName', 'like', $keyword)->first();
+        $customerProjectName = array();
+        $customerProjectID = array();
+        $customerID = array();
+        $customerName = array();
+
+        $customerProjectID = Project::where('id', 'like', $keyword)->paginate(10);
+        $customerProjectName = Project::where('projectName', 'like', $keyword)->paginate(10);
+        if (count($customer) > 0) {
+            $customerID = Project::where('Cid', $customer->id)->paginate(10);
+        }
+        if (count($customerN) > 0) {
+            $customerName = Project::where('companyName', 'like', $customerN->companyName)->paginate(10);
+        }
+
+        return view ('searches.projectresults', compact('customerID', 'customerName', 'customerProjectName', 'customerProjectID'));
     }
 
     public function create()

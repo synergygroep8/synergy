@@ -11,5 +11,7 @@
 @endsection
 
 @section ('right-sidebar')
-
+    @include ('invoices.help.widget')
+    @include ('customers.help.widget')
+    @include ('projects.help.widget')
 @endsection

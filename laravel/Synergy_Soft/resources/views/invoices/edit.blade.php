@@ -24,11 +24,20 @@
                 </div>
                 <div class="form-group">
                     <label for="invoiceTotal">Invoice Total</label>
-                    <input type="number" name="invoiceTotal" value="{{$invoice->invoiceTotal}}" id="invoiceTotal" class="form-control" required>
+                    <input type="number" step=".01" name="invoiceTotal" value="{{$invoice->invoiceTotal}}" id="invoiceTotal" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="paid">Paid</label>
-                    <input type="checkbox" name="paid" checked="{{$invoice->paid}}" id="paid" class="form-control">
+{{--                    <input type="checkbox" name="paid" checked="{{$invoice->paid}}" id="paid" class="form-control">--}}
+                    <select name="paid" id="paid" class="form-control">
+                        @if ($invoice->paid == 0)
+                                <option value="1">Yes</option>
+                                <option value="0" selected>No</option>
+                        @else
+                                <option value="1" selected>Yes</option>
+                                <option value="0">No</option>
+                        @endif
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="description">Description</label>
