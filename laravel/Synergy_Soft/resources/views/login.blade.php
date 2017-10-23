@@ -4,7 +4,7 @@
 @endsection
 @include('includes.message-block')
 @section ('content')
-
+    <div class="col-md-7">
     <form action="{{route('logmein')}}" method="post">
         {{csrf_field()}}
         <div class="form-group">
@@ -19,4 +19,8 @@
             <input type="submit" value="Login" class="btn btn-primary">
         </div>
     </form>
+    </div>
+    <div class="col-md-5">
+        @include('users.help.login')
+    </div>
 @endsection

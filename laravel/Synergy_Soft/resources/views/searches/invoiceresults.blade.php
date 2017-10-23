@@ -27,7 +27,7 @@
                                 <td>{{$item->invoiceNr}}</td>
                                 <td>{{$item->id}}</td>
                                 <td>
-                                    <a role="button" href="/invoice/{{$item->id}}" class="btn btn-info">View</a>
+                                    <a role="button" href="/invoices/{{$item->id}}" class="btn btn-info">View</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -62,7 +62,7 @@
                             <td>{{$item->invoiceNr}}</td>
                             <td>{{$item->id}}</td>
                             <td>
-                                <a role="button" href="/invoice/{{$item->id}}" class="btn btn-info">View</a>
+                                <a role="button" href="/invoices/{{$item->id}}" class="btn btn-info">View</a>
                             </td>
                         </tr>
                     @endforeach

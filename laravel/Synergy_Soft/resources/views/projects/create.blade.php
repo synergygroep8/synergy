@@ -64,5 +64,7 @@
     </form>
 
 @endsection
-
+@section('right-sidebar')
+    @include('projects.help.create')
+@endsection
 

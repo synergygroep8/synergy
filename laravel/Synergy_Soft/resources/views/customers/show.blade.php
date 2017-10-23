@@ -138,5 +138,5 @@
 @endsection
 
 @section ('right-sidebar')
-
+    @include ('customers.help.show')
 @endsection

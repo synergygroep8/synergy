@@ -47,3 +47,7 @@
         </div>
     </div>
 @endsection
+
+@section('right-sidebar')
+    @include('invoices.help.create')
+@endsection

@@ -56,3 +56,7 @@
     </form>
 
 @endsection
+
+@section('right-sidebar')
+    @include ('customers.help.edit')
+@endsection
