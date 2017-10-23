@@ -16,10 +16,10 @@ class DatabaseSeeder extends Seeder
 //        {
 //            $this->call(TblCustomersSeeder::class);
 //        }
-//        for ($i = 0; $i < 200; $i++)
-//        {
-//            $this->call(ProjectSeeder::class);
-//        }
+        for ($i = 0; $i < 200; $i++)
+        {
+            $this->call(ProjectSeeder::class);
+        }
         for ($i = 0; $i < 300; $i++)
         {
             $this->call(InvoiceSeeder::class);
