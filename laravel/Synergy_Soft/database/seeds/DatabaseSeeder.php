@@ -14,16 +14,16 @@ class DatabaseSeeder extends Seeder
         // $this->call(UsersTableSeeder::class);
 //        for ($i = 0; $i < 100; $i++)
 //        {
-//            $this->call(TblCustomersSeeder::class);
+            $this->call(TblCustomersSeeder::class);
 //        }
 //        for ($i = 0; $i < 200; $i++)
 //        {
-//            $this->call(ProjectSeeder::class);
+            $this->call(ProjectSeeder::class);
 //        }
-        for ($i = 0; $i < 300; $i++)
-        {
+//        for ($i = 0; $i < 300; $i++)
+//        {
             $this->call(InvoiceSeeder::class);
-        }
+//        }
         $this->call(UserSeeder::class);
 
     }

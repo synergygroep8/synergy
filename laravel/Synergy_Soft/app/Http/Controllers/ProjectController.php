@@ -33,7 +33,8 @@ class ProjectController extends Controller
         $customer = Customer::where('id', $keyword)->first();
 
         $keyword = '%' . $keyword . '%';
-        $customerN = Customer::where('companyName', 'like', $keyword)->first();
+        $customerN = Customer::where('companyName', 'like', $keyword)->get();
+//        dd($customerN);
         $customerProjectName = array();
         $customerProjectID = array();
         $customerID = array();
@@ -45,7 +46,13 @@ class ProjectController extends Controller
             $customerID = Project::where('Cid', $customer->id)->paginate(10);
         }
         if (count($customerN) > 0) {
-            $customerName = Project::where('companyName', 'like', $customerN->companyName)->paginate(10);
+//            dd($customerN);
+            $it = 0;
+            for ($i = 0; $i < count($customerN); $i++) {
+                $customerName[$it] = Project::where('Cid', $customerN[$i]->id)->get();
+                $it++;
+            }
+//            dd($customerName);
         }
 
         return view ('searches.projectresults', compact('customerID', 'customerName', 'customerProjectName', 'customerProjectID'));
@@ -146,5 +153,10 @@ class ProjectController extends Controller
         return redirect()->route('projectshow', $id);
     }
 
+    public function destroy($id)
+    {
+        Project::destroy($id);
+        return redirect()->action('UserController@dashboard');
+    }
 
 }

@@ -96,7 +96,7 @@ class InvoiceController extends Controller
         $paid = $request['paid'];
         $description = $request['description'];
         $ledgerNumber = $request['ledgerNumber'];
-
+        $project = new Project();
         $project = Project::find($id);
         if ($project->customer->id != $customerId || $project->id != $projectId)
         {
@@ -119,6 +119,16 @@ class InvoiceController extends Controller
         $invoice->ledgerNumber = $ledgerNumber;
 
         $invoice->save();
+
+        $unpaidInvoices = Invoice::where('paid', 0)->where('pId', $projectId)->sum('invoiceTotal');
+        if ($project->creditLimit < $unpaidInvoices) {
+            $project->isMaintained = 0;
+        }
+        else {
+            $project->isMaintained = 1;
+        }
+        $project->save();
+
 
         return redirect()->route('listInvoice', $project->id);
     }
@@ -183,6 +193,15 @@ class InvoiceController extends Controller
         $invoice->ledgerNumber = $request->ledgerNumber;
 
         $invoice->save();
+        $project = Project::find($request->projectId);
+        $unpaidInvoices = Invoice::where('paid', 0)->where('pId', $request->projectId)->sum('invoiceTotal');
+        if ($project->creditLimit < $unpaidInvoices) {
+            $project->isMaintained = 0;
+        }
+        else {
+            $project->isMaintained = 1;
+        }
+        $project->save();
 
         return redirect()->route('invoiceprojectshow', ['pid' => $invoice->project->id, 'id' => $invoice->id]);
 //        return back();

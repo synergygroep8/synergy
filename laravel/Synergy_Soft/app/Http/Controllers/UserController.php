@@ -111,7 +111,8 @@ class UserController extends Controller
                 $companies  = Customer::paginate(10);
                 $users = User::all();
                 $projects   = Project::paginate(10);
-                return view('dashboards.admin-dash', compact('openInvoices', 'closedInvoices', 'users', 'projects'))->with('companies',$companies);
+                $projectsTest = \App\Project::with('customer')->get();
+                return view('dashboards.admin-dash', compact('openInvoices', 'closedInvoices', 'users', 'projects', 'projectsTest'))->with('companies',$companies);
                 break;
             case 1:
 

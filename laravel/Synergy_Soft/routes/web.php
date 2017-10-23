@@ -92,6 +92,10 @@ Route::get('/projects/create', 'ProjectController@create')->middleware('auth', '
 
 Route::post('/projects', 'ProjectController@store')->middleware('auth', 'role:0,1,2')->name('ProjectStore');
 
+Route::get('/projects/{id}/delete', 'ProjectController@verifyDelete')->middleware('auth', 'role:0,1,2')->name('projectDelete');
+
+Route::delete('/projects/{id}/delete', 'ProjectController@destroy')->middleware('auth', 'role:0,1,2')->name('projectDestroy');
+
 Route::put('/projects/{id}','ProjectController@put')->middleware('auth', 'role:0,1,2')->name('ProjectPut');
 
 Route::get('/projects/{id}/edit', 'ProjectController@edit')->middleware('auth', 'role:0,1,2')->name('projectEdit'); //werkt

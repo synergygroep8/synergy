@@ -34,6 +34,7 @@ class CreateCustomersTable extends Migration
             $table->string('faxNumber')->nullable();
             $table->string('initals');
             $table->string('bankaccountNumber');
+            $table->boolean('bkr')->nullable();
             $table->integer('balance')->nullable();
             $table->integer('profit')->nullable();
             $table->integer('invoices')->nullable();

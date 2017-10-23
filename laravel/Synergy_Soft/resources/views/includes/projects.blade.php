@@ -25,7 +25,7 @@
                         <tr>
                             <td>{{$project->projectName}}</td>
                             <td>{{$project->id}}</td>
-                            <td><a class="btn btn-danger" href="#">Delete</a></td>
+                            <td><a class="btn btn-danger" href="{{action('ProjectController@verifyDelete', $project->id)}}">Delete</a></td>
                             <td><a class="btn btn-info" href="{{route('projectshow', $project->id)}}">View</a></td>
                         </tr>
                     @endforeach
