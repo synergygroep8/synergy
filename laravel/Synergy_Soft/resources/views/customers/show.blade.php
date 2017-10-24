@@ -117,7 +117,7 @@
                 </tr>
                 <tr>
                     <th>Invoices</th>
-                    <td>{{count($customer->invoices)}} <a href="/"></a></td>
+                    <td>{{$customer->invoices}} <a href="/"></a></td>
                 </tr>
                 <tr>
                     <th>Balance</th>
@@ -126,6 +126,18 @@
                 <tr>
                     <th>Profit</th>
                     <td>{{$customer->profit}}</td>
+                </tr>
+                <tr>
+                    <th>BKR</th>
+                    <td>
+                        @if ($customer->bkr == null)
+                            Not started
+                        @elseif ($customer->bkr == 0)
+                            Not passed
+                        @else
+                            Passed
+                        @endif
+                    </td>
                 </tr>
                 <tr>
                     <th>BTW Code</th>

@@ -1,5 +1,5 @@
 <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingProjectHelpHelp">
+    <div class="panel-heading" role="tab" id="headingProjectShowHelp">
         <h4 class="panel-title">
             <a class="collapsed btn-block" role="button" data-toggle="collapse" data-parent="#accordion2" href="#projectShowHelp" aria-expanded="false" aria-controls="projectShowHelp">
                 Project help

@@ -1,12 +1,12 @@
 <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingInvoiceHelp">
+    <div class="panel-heading" role="tab" id="headingProjectHelp">
         <h4 class="panel-title">
-            <a class="collapsed btn-block" role="button" data-toggle="collapse" data-parent="#accordion2" href="#invoiceHelp" aria-expanded="false" aria-controls="invoiceHelp">
+            <a class="collapsed btn-block" role="button" data-toggle="collapse" data-parent="#accordion2" href="#projectHelp" aria-expanded="false" aria-controls="projectHelp">
                 Project help
             </a>
         </h4>
     </div>
-    <div id="invoiceHelp" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingInvoiceHelp">
+    <div id="projectHelp" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingProjectHelp">
         <div class="panel-body list-group">
             <div class="list-group">
                 <div class="list-group-item">

@@ -27,7 +27,7 @@
                     @if ($project->isMaintained)
                         Yes
                     @else
-                    No
+                        No
                     @endif
                 </td>
             </tr>

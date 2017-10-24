@@ -95,9 +95,31 @@ class CustomerController extends Controller
         {
             return redirect('/customers/');
         }
+        $count = 0;
+        $profit = 0;
+        $balance = 0;
+        foreach ($customer->projects as $project)
+        {
+            $count = $count + $project->invoices->count();
+            foreach ($project->invoices as $invoice)
+            {
+                if ($invoice->paid) {
+                    $profit = $profit + $invoice->invoiceTotal;
+                    $balance = $balance + $invoice->invoiceTotal;
+                }
+                else {
+                    $balance = $balance - $invoice->invoiceTotal;
+                }
+            }
+        }
+
+        $customer->invoices = $count;
+        $customer->profit = $profit;
+        $customer->balance = $balance;
+        $customer->save();
 
 //        dd($customer);
-        return view('customers.show', compact('customer'));
+        return view('customers.show', compact('customer', 'count', 'profit', 'balance'));
     }
 
     public function put(Request $request, $id   )
@@ -165,6 +187,32 @@ class CustomerController extends Controller
 
 
     }
+
+    private function updateCalculations() {
+        $customers = Customer::all();
+        foreach ($customers as $customer) {
+            $count = 0;
+            $profit = 0;
+            $balance = 0;
+            foreach ($customer->projects as $project) {
+                $count = $count + $project->invoices->count();
+                foreach ($project->invoices as $invoice) {
+                    if ($invoice->paid) {
+                        $profit = $profit + $invoice->invoiceTotal;
+                        $balance = $balance + $invoice->invoiceTotal;
+                    } else {
+                        $balance = $balance - $invoice->invoiceTotal;
+                    }
+                }
+            }
+
+            $customer->invoices = $count;
+            $customer->profit = $profit;
+            $customer->balance = $balance;
+            $customer->save();
+        }
+    }
+
     public  function getCreate()
     {
         return view('customers.create');
