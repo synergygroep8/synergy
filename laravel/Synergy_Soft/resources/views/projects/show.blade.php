@@ -23,7 +23,13 @@
             </tr>
             <tr>
                 <th>Is Maintained</th>
-                <td>{{$project->isMaintained}}</td>
+                <td>
+                    @if ($project->isMaintained)
+                        Yes
+                    @else
+                    No
+                    @endif
+                </td>
             </tr>
             <tr>
                 <th>Software</th>
@@ -64,4 +70,6 @@
     </div>
 </div>
 @endsection
-
+@section('right-sidebar')
+    @include('projects.help.show')
+@endsection

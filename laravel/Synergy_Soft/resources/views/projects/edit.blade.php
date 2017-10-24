@@ -58,4 +58,8 @@
 
 @endsection
 
+@section('right-sidebar')
+    @include('projects.help.edit')
+@endsection
+
 

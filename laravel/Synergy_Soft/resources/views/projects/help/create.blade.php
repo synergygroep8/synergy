@@ -46,8 +46,8 @@
                     <p class="list-group-item-text">This is the area where you can toggle the maintained state of the project</p>
                 </div>
                 <div class="list-group-item">
-                    <h4 class="list-group-item-heading"></h4>
-                    <p class="list-group-item-text"></p>
+                    <h4 class="list-group-item-heading">Submit</h4>
+                    <p class="list-group-item-text">This button sends the data to the database if it passes validation</p>
                 </div>
             </div>
         </div>
