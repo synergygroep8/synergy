@@ -9,10 +9,10 @@
     <div id="projectHelp" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingProjectHelp">
         <div class="panel-body list-group">
             <div class="list-group">
-                <div class="list-group-item">
-                    <h4 class="list-group-item-heading">Cid</h4>
-                    <p class="list-group-item-text">This is the area for the company id represented by name</p>
-                </div>
+                {{--<div class="list-group-item">--}}
+                    {{--<h4 class="list-group-item-heading">Cid</h4>--}}
+                    {{--<p class="list-group-item-text">This is the area for the company id represented by name</p>--}}
+                {{--</div>--}}
                 <div class="list-group-item">
                     <h4 class="list-group-item-heading">The name of the project</h4>
                     <p class="list-group-item-text">This is the area for the name of the project</p>

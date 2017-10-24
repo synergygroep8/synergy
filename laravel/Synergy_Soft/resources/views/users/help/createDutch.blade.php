@@ -26,7 +26,7 @@
                 </div>
                 <div class="list-group-item">
                     <h4 class="list-group-item-heading">Verify Password</h4>
-                    <p class="list-group-item-text">verifiëren van het wachtwoord van het account.</p>
+                    <p class="list-group-item-text">Verifiëren van het wachtwoord van het account.</p>
                 </div>
             </div>
         </div>

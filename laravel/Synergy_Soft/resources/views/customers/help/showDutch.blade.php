@@ -2,7 +2,7 @@
     <div class="panel-heading" role="tab" id="headingCustomerHelpDutch">
         <h4 class="panel-title">
             <a class="collapsed btn-block" role="button" data-toggle="collapse" data-parent="#accordion2" href="#customerHelpDutch" aria-expanded="false" aria-controls="customerHelpDutch">
-                klant helppagina
+                Klant helppagina
             </a>
         </h4>
     </div>

@@ -25,7 +25,7 @@
                 </div>
                 <div class="list-group-item">
                     <h4 class="list-group-item-heading">Projects</h4>
-                    <p class="list-group-item-text">Lorem ipsum dolor sit amet</p>
+                    <p class="list-group-item-text">This is the area where the amount of projects from the customers stands</p>
                 </div>
                 <div class="list-group-item">
                     <h4 class="list-group-item-heading">View</h4>

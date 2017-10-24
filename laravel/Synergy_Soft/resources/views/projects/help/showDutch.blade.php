@@ -11,8 +11,7 @@
             <div class="list-group">
                 <div class="list-group-item">
                     <h4 class="list-group-item-heading">Cid</h4>
-                    <p class="list-group-item-text">Dit is het veld voor het bedrijf id
-                        This is the area for the company id  vertegenwoordigd door naam.</p>
+                    <p class="list-group-item-text">Dit is het veld voor de bedrijfsnaam</p>
                 </div>
                 <div class="list-group-item">
                     <h4 class="list-group-item-heading">The name of the project</h4>
@@ -32,19 +31,19 @@
                 </div>
                 <div class="list-group-item">
                     <h4 class="list-group-item-heading">Last contacted person</h4>
-                    <p class="list-group-item-text">Dit velt is voor de laatse persoon die contact heeft gehad met de klant</p>
+                    <p class="list-group-item-text">Dit veld is voor de laatse persoon die contact heeft gehad met de klant</p>
                 </div>
                 <div class="list-group-item">
                     <h4 class="list-group-item-heading">Made agreements</h4>
-                    <p class="list-group-item-text">In dit velt staan alle afspraken die gemkaatzijn met de klant.</p>
+                    <p class="list-group-item-text">In dit veld staan alle afspraken die gemkaatzijn met de klant.</p>
                 </div>
                 <div class="list-group-item">
                     <h4 class="list-group-item-heading">The limit of the clients project credit</h4>
-                    <p class="list-group-item-text">Dit is het velt waar je het huildige credit van het plaatst</p>
+                    <p class="list-group-item-text">Dit is het veld waar je het huildige credit van het plaatst</p>
                 </div>
                 <div class="list-group-item">
                     <h4 class="list-group-item-heading">Is the project maintained</h4>
-                    <p class="list-group-item-text">This is the area where you can toggle the maintained state of the project</p>
+                    <p class="list-group-item-text">Dit is het veld waar je kunt zien of er nog aan het project wordt gewerkt</p>
                 </div>
                 <div class="list-group-item">
                     <h4 class="list-group-item-heading">Invoices</h4>
