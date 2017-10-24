@@ -20,12 +20,12 @@
                 </div>
                 <h3>List</h3>
                 <div class="list-group-item">
-                    <h4 class="list-group-item-heading">User name</h4>
-                    <p class="list-group-item-text">Dit is de naam van de gebruiker.</p>
+                    <h4 class="list-group-item-heading">Company name</h4>
+                    <p class="list-group-item-text">Dit is de naam van het bedrijf.</p>
                 </div>
                 <div class="list-group-item">
-                    <h4 class="list-group-item-heading">Department</h4>
-                    <p class="list-group-item-text">Dit is de afdeling van de gebruiker</p>
+                    <h4 class="list-group-item-heading">Projects</h4>
+                    <p class="list-group-item-text">het aantal openstaande projecten</p>
                 </div>
                 <div class="list-group-item">
                     <h4 class="list-group-item-heading">View</h4>
