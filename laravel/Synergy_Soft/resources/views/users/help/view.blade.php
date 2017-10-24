@@ -26,7 +26,6 @@
                     <h4 class="list-group-item-heading">Back</h4>
                     <p class="list-group-item-text">This button is for going back to the dashboard</p>
                 </div>
-                </div>
             </div>
         </div>
     </div>

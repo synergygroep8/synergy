@@ -139,4 +139,6 @@
 
 @section ('right-sidebar')
     @include ('customers.help.show')
+    @include ('customers.help.showDutch')
+
 @endsection
