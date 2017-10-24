@@ -12,7 +12,7 @@
                 @if (Auth::user()->department == 0 || Auth::user()->department == 2)
                 <li><a href="{{route('createcustomer')}}">Add customer</a></li>
                 @endif
-                <li><a href="#">Edit/remove customer</a></li>
+                <li><a href="{{route('dashboard')}}">Edit/remove customer</a></li>
             </ul>
         </div>
     </div>
@@ -32,7 +32,7 @@
                 @if (Auth::user()->department == 0 || Auth::user()->department == 2)
                 <li><a href="{{route('createProject')}}">Add project</a></li>
                 @endif
-                <li><a href="#">Edit/remove project</a></li>
+                <li><a href="{{route('dashboard')}}">Edit/remove project</a></li>
             </ul>
         </div>
     </div>

@@ -9,7 +9,7 @@
     <div id="invoicemenu" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
         <div class="panel-body">
             <ul class="remove-bullet">
-                <li><a href="#">View/edit invoices</a></li>
+                <li><a href="{{route('dashboard')}}">View/edit invoices</a></li>
                 {{--<li><a href="">Add invoice</a></li>--}}
             </ul>
         </div>
