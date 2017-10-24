@@ -72,4 +72,6 @@
 @endsection
 @section('right-sidebar')
     @include('projects.help.show')
+    @include('projects.help.showDutch')
+
 @endsection

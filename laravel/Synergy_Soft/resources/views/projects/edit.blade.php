@@ -60,6 +60,8 @@
 
 @section('right-sidebar')
     @include('projects.help.edit')
+    @include('projects.help.editDutch')
+
 @endsection
 
 

@@ -17,4 +17,9 @@
     @include('customers.help.widget')
     @include('users.help.widget')
     @include('projects.help.widget')
+
+    @include('invoices.help.widgetDutch')
+    @include('customers.help.widgetDutch')
+    @include('users.help.widgetDutch')
+    @include('projects.help.widgetDutch')
 @endsection
