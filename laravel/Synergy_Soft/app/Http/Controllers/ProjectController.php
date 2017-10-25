@@ -73,13 +73,13 @@ class ProjectController extends Controller
         $this->validate($request,[
 
             'cid'               => 'required',
-            'projectName'       => 'required|min:4|max:190',
-            'software'          => 'required',
-            'hardware'          => 'required',
-            'OS'                => 'required',
-            'lastContact'       => 'required',
-            'contactClient'     => 'required',
-            'creditLimit'       => 'required',
+            'projectName'       => 'required|min:4|max:191',
+            'software'          => 'required|max:191',
+            'hardware'          => 'required|max:191',
+            'OS'                => 'required|max:191',
+            'lastContact'       => 'required|max:191',
+            'contactClient'     => 'required|max:191',
+            'creditLimit'       => 'required|max:9000000|numeric',
         ]);
         if ($request->isMaintained == 'on')
         {
@@ -120,13 +120,13 @@ class ProjectController extends Controller
     {
         $this->validate($request,[
 
-            'projectName'       => 'required|min:4|max:190',
-            'software'          => 'required',
-            'hardware'          => 'required',
-            'OS'                => 'required',
-            'lastContact'       => 'required',
-            'contactClient'     => 'required',
-            'creditLimit'       => 'required',
+            'projectName'       => 'required|min:4|max:191',
+            'software'          => 'required|max:191',
+            'hardware'          => 'required|max:191',
+            'OS'                => 'required|max:191',
+            'lastContact'       => 'required|max:191',
+            'contactClient'     => 'required|max:191',
+            'creditLimit'       => 'required|max:9000000|numeric',  
         ]);
         if ($request->isMaintained == 'on')
         {
