@@ -146,8 +146,6 @@ class CustomerController extends Controller
         $matches = array();
         preg_match($pattern, $checkphone1, $matches);
 
-        dd($matches);
-
         $customer = Customer::find($id);
 
         $customer->companyName              = $request->companyName;

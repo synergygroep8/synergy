@@ -58,6 +58,5 @@
 
 @section('right-sidebar')
     @include ('customers.help.create')
-    @include ('customers.help.createDutch')
 
 @endsection

@@ -64,6 +64,5 @@
 
 @section('right-sidebar')
 @include('users.help.edit')
-@include('users.help.editDutch')
 
 @endsection

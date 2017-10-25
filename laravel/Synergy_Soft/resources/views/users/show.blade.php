@@ -51,7 +51,5 @@
 @section('right-sidebar')
 
 @include('users.help.view')
-@include('users.help.viewDutch')
-
 
 @endsection

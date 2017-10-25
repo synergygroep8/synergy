@@ -47,7 +47,5 @@
 @section('right-sidebar')
 
     @include('users.help.create')
-    @include('users.help.createDutch')
-
 
 @endsection

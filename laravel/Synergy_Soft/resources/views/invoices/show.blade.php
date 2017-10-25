@@ -73,5 +73,4 @@
 
 @section('right-sidebar')
     @include('invoices.help.show')
-    @include('invoices.help.showDutch')
 @endsection

@@ -80,12 +80,12 @@ class InvoiceController extends Controller
         $this->validate($request, [
             'customerId' => 'required',
             'projectId' => 'required',
-            'invoiceNr' => 'required',
+            'invoiceNr' => 'required|numeric',
             'date' => 'required',
-            'invoiceTotal' => 'required',
-            'paid' => 'required',
-            'description' => 'required',
-            'ledgerNumber' => 'required'
+            'invoiceTotal' => 'required|numeric',
+            'paid' => 'required|max:1',
+            'description' => 'required|max:191',
+            'ledgerNumber' => 'required|max:191'
         ]);
         $customerId = $request['customerId'];
         $projectId = $request['projectId'];
@@ -151,11 +151,12 @@ class InvoiceController extends Controller
         $this->validate($request, [
             'customerId' => 'required',
             'projectId' => 'required',
-            'invoiceNr' => 'required',
-            'date' => 'required|date',
-            'invoiceTotal' => 'required|max:999999999|numeric',
-            'description' => 'required',
-            'ledgerNumber' => 'required'
+            'invoiceNr' => 'required|numeric',
+            'date' => 'required',
+            'invoiceTotal' => 'required|numeric|max:999999999',
+            'paid' => 'required|max:1',
+            'description' => 'required|max:191',
+            'ledgerNumber' => 'required|max:191'
         ]);
 //        dd($request);
         if (count(Invoice::where('invoiceNr',$request->invoiceNr)->get()) > 1)

@@ -66,7 +66,5 @@
 @endsection
 @section('right-sidebar')
     @include('projects.help.create')
-    @include('projects.help.createDutch')
-
 @endsection
 

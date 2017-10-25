@@ -56,5 +56,4 @@
 @endsection
 @section ('right-sidebar')
     @include ('invoices.help.edit')
-    @include ('invoices.help.editDutch')
 @endsection

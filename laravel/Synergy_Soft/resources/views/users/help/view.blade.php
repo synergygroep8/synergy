@@ -31,5 +31,5 @@
     </div>
 </div>
 
-
+@include ('users.help.viewDutch')
 {{--.list-group>a.list-group-item>h4.list-group-item-heading+p.list-group-item-text--}}

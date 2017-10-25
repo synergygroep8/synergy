@@ -50,6 +50,5 @@
 
 @section('right-sidebar')
     @include('invoices.help.create')
-    @include('invoices.help.createDutch')
 
 @endsection

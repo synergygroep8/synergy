@@ -22,7 +22,6 @@
     </div>
     <div class="col-md-5">
         @include('users.help.login')
-        @include('users.help.loginDutch')
 
     </div>
 @endsection
