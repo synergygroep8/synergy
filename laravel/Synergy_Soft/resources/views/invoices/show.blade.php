@@ -68,6 +68,7 @@
     @if (Auth::user()->department == 0 || Auth::user()->department == 1)
     <a class="btn btn-warning" href="{{route('editInvoice', ['pid' => $invoice->project->id, 'id' => $invoice->id])}}">Edit</a>
     @endif
+    <a href="{{action('InvoiceController@verifyDelete', $invoice->id)}}" class="btn btn-danger">Delete</a>
 @endsection
 
 @section('right-sidebar')

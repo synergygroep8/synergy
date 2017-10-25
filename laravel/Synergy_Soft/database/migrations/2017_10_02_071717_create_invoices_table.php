@@ -24,6 +24,8 @@ class CreateInvoicesTable extends Migration
             $table->decimal('BTW');
             $table->string('ledgerNumber');
             $table->timestamps();
+
+            $table->date('deleted_at')->nullable();
         });
     }
 

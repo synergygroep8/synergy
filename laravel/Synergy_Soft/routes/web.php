@@ -68,7 +68,9 @@ Route::get('/invoices/search', 'InvoiceController@searchInvoice')->middleware('a
 /* Invoice detail page */
 Route::get('/invoices/{id}', 'InvoiceController@show')->middleware('auth', 'role:0,1,2')->name('invoicedetail');
 
+Route::get('/invoices/{id}/delete', 'InvoiceController@verifyDelete')->middleware('auth', 'role:0,1');
 
+Route::delete('/invoices/{id}/delete', 'InvoiceController@destroy')->middleware('auth', 'role:0,1');
 /* Search for projects */
 Route::get('/projects/search', 'ProjectController@searchProject')->middleware('auth', 'role:0,1,2,3')->name('searchproject');
 /*show projects list */

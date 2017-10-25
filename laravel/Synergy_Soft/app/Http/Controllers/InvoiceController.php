@@ -207,9 +207,18 @@ class InvoiceController extends Controller
 //        return back();
     }
 
+    public function verifyDelete($id)
+    {
+        $invoice = Invoice::find($id);
+
+        return view('invoices.verifyDelete', compact('invoice'));
+    }
+
 
     public function destroy($id)
     {
-        
+        Invoice::destroy($id);
+
+        return redirect()->route('dashboard');
     }
 }

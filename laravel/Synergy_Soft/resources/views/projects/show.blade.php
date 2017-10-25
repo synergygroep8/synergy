@@ -65,6 +65,7 @@
         @endif
         <a class="btn btn-warning" href="{{route('projectEdit',$project->id)}}">Edit</a>
 
+        <a href="{{action('ProjectController@destroy', $project->id)}}" class="btn btn-danger">Delete</a>
 
 
     </div>

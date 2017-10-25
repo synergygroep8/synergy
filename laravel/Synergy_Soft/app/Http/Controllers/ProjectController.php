@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Customer;
+use App\Invoice;
 use App\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
@@ -155,8 +156,13 @@ class ProjectController extends Controller
 
     public function destroy($id)
     {
+        $invoices = Invoice::where('pId', $id)->get();
+        foreach ($invoices as $invoice) {
+            Invoice::destroy($invoice->id);
+        }
         Project::destroy($id);
-        return redirect()->action('UserController@dashboard');
+
+        return redirect()->action('UserController@getDashboard');
     }
 
 }
