@@ -130,14 +130,14 @@ class CustomerController extends Controller
             'companyName'                   =>'required|max:191',
             'residence'                     =>'required|max:191',
             'adress'                        =>'required|max:191',
-            'houseNumber'                   =>'required|max:99999999999|numeric',
+            'houseNumber'                   =>'required|max:9999|numeric',
             'zipCode'                       =>'required|max:191',
 //            'phone1'                        =>'required|max:191|regex:/^\+?(\d{1,2}) ?(\d{3}) ?(\d{3}) ?(\d{3})$/',
             'phone1'                        =>'required|max:191',
             'email'                         =>'email|required|max:191',
             'contact'                       =>'required|max:191',
             'initals'                       =>'required|max:191',
-            'bankaccountNumber'             =>'required|max:191'
+            'bankaccountNumber'             =>'required|max:191|regex:/[A-Z]{2}\d{2} ?[A-Z]{4} ?\d{4} ?\d{4} ?[\d]{0,2}/'
         ]);
 
         $checkphone1 = $request->phone1;
@@ -223,16 +223,16 @@ class CustomerController extends Controller
 
         $this->validate($request,[
 
-            'companyName'                   => 'unique:tbl_customers|required|max:191',
+            'companyName'                   => 'required|max:191',
             'residence'                     =>'required|max:191',
             'adress'                        =>'required|max:191',
-            'houseNumber'                   =>'required|numeric|max:99999999999',
+            'houseNumber'                   =>'required|numeric|max:9999',
             'zipCode'                       =>'required|max:191',
-            'phone1'                        =>'unique:tbl_customers|required|max:191|regex:/^\+?(\d{1,2}) ?(\d{3}) ?(\d{3}) ?(\d{3})$/',
+            'phone1'                        =>'required|max:191|regex:/^\+?(\d{1,2}) ?(\d{3}) ?(\d{3}) ?(\d{3})$/',
             'email'                         =>'email|required|max:191',
             'contact'                       =>'required|max:191',
             'initals'                       =>'required|max:191',
-            'bankaccountNumber'             =>'required|max:191'
+            'bankaccountNumber'             =>'required|max:191|regex:/[A-Z]{2}\d{2} ?[A-Z]{4} ?\d{4} ?\d{4} ?[\d]{0,2}/'
         ]);
 
 
@@ -256,7 +256,7 @@ class CustomerController extends Controller
 
 
 
-
+        return redirect()->route('customerdetail', $customer->id);
     }
 
 }
