@@ -56,6 +56,10 @@ Route::get('/invoices', function() {
     return redirect()->route('dashboard');
 });
 
+Route::get('/projects', function() {
+    return redirect()->route('dashboard');
+});
+
 Route::get('/customers', function() {
     return redirect()->route('dashboard');
 });
@@ -90,7 +94,7 @@ Route::get('/projects/{id}/invoices', 'InvoiceController@projectIndex')->middlew
 
 Route::get('/projects/{pid}/invoices/{id}', 'InvoiceController@showFromProject')->middleware('auth', 'role:0,1')->name('invoiceprojectshow');
 
-Route::get('/projects/create', 'ProjectController@create')->middleware('auth', 'role:0,1')->name('createProject');
+Route::get('/projects/create', 'ProjectController@create')->middleware('auth', 'role:0,1,2')->name('createProject');
 
 Route::post('/projects', 'ProjectController@store')->middleware('auth', 'role:0,1,2')->name('ProjectStore');
 
@@ -107,6 +111,10 @@ Route::get('/projects/{id}', 'ProjectController@show')->middleware('auth', 'role
 Route::get('/users/create', 'UserController@create')->middleware('auth', 'role:0')->name('createUser');
 
 Route::post('/users', 'UserController@store')->middleware('auth', 'role:0')->name('storeUser');
+
+Route::get('/users/{id}/delete', 'UserController@verifyDelete')->middleware('auth', 'role:0');
+
+Route::delete('/users/{id}/delete', 'UserController@destroy')->middleware('auth', 'role:0');
 
 Route::get('/users/{id}/edit', 'UserController@edit')->middleware('auth', 'role:0')->name('editUser');
 

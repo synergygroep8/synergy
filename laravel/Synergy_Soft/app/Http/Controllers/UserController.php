@@ -179,4 +179,19 @@ class UserController extends Controller
 
         return redirect()->route('dashboard');
     }
+
+    public function destroy($id) {
+        if (Auth::user()->id == $id) {
+            return redirect()->action('UserController@getDashboard')->with('messageB', "You can't delete your current user!");
+        }
+        User::destroy($id);
+        return redirect()->action('UserController@getDashboard');
+    }
+    public function verifyDelete($id) {
+        if (Auth::user()->id == $id) {
+            return redirect()->action('UserController@getDashboard')->with('messageB', "You can't delete your current user!");
+        }
+        $user = User::find($id);
+        return view('users.verifyDelete', compact('user'));
+    }
 }

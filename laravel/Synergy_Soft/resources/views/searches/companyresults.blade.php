@@ -18,15 +18,23 @@
                         <th>Company Name</th>
                         <th>Total Projects</th>
                         <th>Total Invoices</th>
+                        <th>View</th>
                     </tr>
                     @foreach($customerId as $item)
                     <tr>
                         <td>{{$item->id}}</td>
                         <td>{{$item->companyName}}</td>
-                        <td></td>
-                        <td></td>
+                        <td>{{$item->projects->count()}}</td>
+                        <?php
+                        $countInvoices = 0;
+                        foreach($item->projects as $project) {
+                            $countInvoices += $project->invoices->count();
+                        }
+                        ?>
+                        <td>{{$countInvoices}}</td>
+                        <td><a role="button" href="/customers/{{$item->id}}" class="btn btn-info">View</a></td>
                     </tr>
-                        @endforeach
+                    @endforeach
                 </table>
             @endif
         </div>
@@ -47,6 +55,7 @@
                         <th>Company Name</th>
                         <th>Total Projects</th>
                         <th>Total Invoices</th>
+                        <th>View</th>
                     </tr>
 
 
@@ -54,8 +63,15 @@
                         <tr>
                             <td>{{$item->id}}</td>
                             <td>{{$item->companyName}}</td>
-                            <td></td>
-                            <td></td>
+                            <td>{{$item->projects->count()}}</td>
+                            <?php
+                            $countInvoices = 0;
+                            foreach($item->projects as $project) {
+                                $countInvoices += $project->invoices->count();
+                            }
+                            ?>
+                            <td>{{$countInvoices}}</td>
+                            <td><a role="button" href="/customers/{{$item->id}}" class="btn btn-info">View</a></td>
                         </tr>
                     @endforeach
                 </table>

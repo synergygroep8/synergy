@@ -31,8 +31,8 @@
             <input class="form-control" type="text" name="OS" value="{{$project->OS}}" placeholder="Name of Operating system">
         </div>
         <div class="form-group">
-            <label for="lastContact">Last contacted person (als laatse contact heeft gehad)</label>
-            <input class="form-control" type="text" name="lastContact" placeholder="Name of the last contact peron">
+            <label for="lastContact">Last contacted person</label>
+            <input class="form-control" type="text" name="lastContact" placeholder="Name of the last contact peron" value="{{$project->lastContact}}">
         </div>
 
         <div class="form-group">
@@ -46,7 +46,7 @@
         </div>
 
         <div class="form-group">
-            <label for="isMaintained">is the project maintained?</label>
+            <label for="isMaintained">Is the project maintained?</label>
             <input class="form-control" type="checkbox" checked="{{$project->IsMaintained}}" name="isMaintained" placeholder="">
         </div>
         <div class="form-group">

@@ -45,6 +45,7 @@
         </div>
     </div>
     <a class="btn btn-warning" href="{{route('editUser', $user->id)}}">Edit</a>
+    <a class="btn btn-danger" href="{{action('UserController@verifyDelete', $user->id)}}">Delete</a>
     <a class="btn button-brown" href="../users">Back</a>
 @endsection
 

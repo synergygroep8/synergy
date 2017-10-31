@@ -46,7 +46,7 @@
                                     }
                             ?>
                             </td>
-                            <td><a class="btn btn-danger" href="#">Delete</a></td>
+                            <td><a class="btn btn-danger" href="{{action('UserController@verifyDelete', $user->id)}}">Delete</a></td>
                             <td><a class="btn btn-info" href="{{route('showuser', $user->id)}}">View</a></td>
                         </tr>
                     @endforeach

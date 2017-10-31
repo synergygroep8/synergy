@@ -55,7 +55,6 @@ class ProjectController extends Controller
             }
 //            dd($customerName);
         }
-
         return view ('searches.projectresults', compact('customerID', 'customerName', 'customerProjectName', 'customerProjectID'));
     }
 

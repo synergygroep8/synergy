@@ -31,7 +31,7 @@ class TblCustomersSeeder extends Seeder
                     'ContactPerson' => $factory->name,
                     'FaxNumber' => '8329473427',
                     'initals' => 'JGF',
-                    'BankaccountNumber' => $factory->bankAccountNumber,
+                    'BankaccountNumber' => rand(10,99) . 'NL' . rand(10,99) . $factory->randomLetter . $factory->randomLetter . $factory->randomLetter . $factory->randomLetter . rand(1000000000,9999999999),
                     'BTWCode' => '93284309jfioejfw'
                 ));
             }
@@ -49,7 +49,7 @@ class TblCustomersSeeder extends Seeder
                     'FaxNumber' => '8329473427',
                     'initals' => 'JGF',
                     'bkr' => 0,
-                    'BankaccountNumber' => $factory->bankAccountNumber,
+                    'BankaccountNumber' => rand(10,99) . 'NL' . rand(10,99) . $factory->randomLetter . $factory->randomLetter . $factory->randomLetter . $factory->randomLetter . rand(1000000000,9999999999),
                     'BTWCode' => '93284309jfioejfw'
                 ));
             }
@@ -69,7 +69,7 @@ class TblCustomersSeeder extends Seeder
                     'ContactPerson' => $factory->name,
                     'FaxNumber' => '8329473427',
                     'initals' => 'JGF',
-                    'BankaccountNumber' => $factory->bankAccountNumber,
+                    'BankaccountNumber' => rand(10,99) . 'NL' . rand(10,99) . $factory->randomLetter . $factory->randomLetter . $factory->randomLetter . $factory->randomLetter . rand(1000000000,9999999999),
                     'BTWCode' => '9328430945ioejfw'
                 ));
             }
@@ -88,7 +88,7 @@ class TblCustomersSeeder extends Seeder
                     'FaxNumber' => '8329473427',
                     'initals' => 'JGF',
                     'bkr' => 0,
-                    'BankaccountNumber' => $factory->bankAccountNumber,
+                    'BankaccountNumber' => rand(10,99) . 'NL' . rand(10,99) . $factory->randomLetter . $factory->randomLetter . $factory->randomLetter . $factory->randomLetter . rand(1000000000,9999999999),
                     'BTWCode' => '9328430945ioejfw'
                 ));
             }
@@ -107,7 +107,7 @@ class TblCustomersSeeder extends Seeder
                     'FaxNumber' => '8329473427',
                     'initals' => 'JGF',
                     'bkr' => 1,
-                    'BankaccountNumber' => $factory->bankAccountNumber,
+                    'BankaccountNumber' => rand(10,99) . 'NL' . rand(10,99) . $factory->randomLetter . $factory->randomLetter . $factory->randomLetter . $factory->randomLetter . rand(1000000000,9999999999),
                     'BTWCode' => '9328430945ioejfw'
                 ));
             }
@@ -127,7 +127,7 @@ class TblCustomersSeeder extends Seeder
                 'FaxNumber' => '8329473427',
                 'initals' => 'JGF',
                 'bkr' => 1,
-                'BankaccountNumber' => $factory->bankAccountNumber,
+                'BankaccountNumber' => rand(10,99) . 'NL' . rand(10,99) . $factory->randomLetter . $factory->randomLetter . $factory->randomLetter . $factory->randomLetter . rand(1000000000,9999999999),
                 'BTWCode' => '9328430945ioejfw'
             ));
         }
@@ -145,7 +145,7 @@ class TblCustomersSeeder extends Seeder
                 'FaxNumber' => rand(9999,9999999),
                 'initals' => 'JGF',
                 'bkr' => 1,
-                'BankaccountNumber' => $factory->bankAccountNumber,
+                'BankaccountNumber' => rand(10,99) . 'NL' . rand(10,99) . $factory->randomLetter . $factory->randomLetter . $factory->randomLetter . $factory->randomLetter . rand(1000000000,9999999999),
                 'BTWCode' => '9328430945ioejfw'
             ));
 
@@ -165,7 +165,7 @@ class TblCustomersSeeder extends Seeder
                 'FaxNumber' => '8329473427',
                 'initals' => 'JGF',
                 'bkr' => 1,
-                'BankaccountNumber' => $factory->bankAccountNumber,
+                'BankaccountNumber' => rand(10,99) . 'NL' . rand(10,99) . $factory->randomLetter . $factory->randomLetter . $factory->randomLetter . $factory->randomLetter . rand(1000000000,9999999999),
                 'BTWCode' => '93284309jfioejfw'
             ));
         }

@@ -27,7 +27,7 @@
                                 <td>{{$item->customer->id}}</td>
                                 <td>{{$item->customer->companyName}}</td>
                                 <td>
-                                    <a role="button" href="/project/{{$item->id}}" class="btn btn-info">View</a>
+                                    <a role="button" href="/projects/{{$item->id}}" class="btn btn-info">View</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -63,7 +63,7 @@
                             <td>{{$item->customer->id}}</td>
                             <td>{{$item->customer->companyName}}</td>
                             <td>
-                                <a role="button" href="/project/{{$item->id}}" class="btn btn-info">View</a>
+                                <a role="button" href="/projects/{{$item->id}}" class="btn btn-info">View</a>
                             </td>
                         </tr>
                     @endforeach
@@ -97,7 +97,7 @@
                             <td>{{$item->customer->id}}</td>
                             <td>{{$item->customer->companyName}}</td>
                             <td>
-                                <a role="button" href="/project/{{$item->id}}" class="btn btn-info">View</a>
+                                <a role="button" href="/projects/{{$item->id}}" class="btn btn-info">View</a>
                             </td>
                         </tr>
                     @endforeach
@@ -125,6 +125,7 @@
                     </tr>
                     @foreach($customerName as $item1)
 
+
                         @foreach ($item1 as $item2)
                         <tr>
                             <td>{{$item2->id}}</td>
@@ -132,7 +133,7 @@
                             <td>{{$item2->customer->id}}</td>
                             <td>{{$item2->customer->companyName}}</td>
                             <td>
-                                <a role="button" href="/project/{{$item->id}}" class="btn btn-info">View</a>
+                                <a role="button" href="/projects/{{$item2->id}}" class="btn btn-info">View</a>
                             </td>
                         </tr>
                         @endforeach
